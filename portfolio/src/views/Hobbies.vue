@@ -32,7 +32,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue';
         <div class="hobby-card">
           <div class="hobby-icon">🚀</div>
           <h3>Astronomie</h3>
-          <p>J'aime découvrir les dernières news sur les nouvelles découvertes spatiales et les nouvelles innovations de ce domaine. Référence : Hugo Lisoir</p>
+          <p>J'aime découvrir les dernières news sur les découvertes spatiales et les innovations de ce domaine. Référence : Hugo Lisoir</p>
         </div>
       </ScrollReveal>
     </div>
