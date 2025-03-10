@@ -45,7 +45,7 @@ onMounted(() => {
 
       <ScrollReveal>
         <section class="project-section">
-          <h2>À propos du projet</h2>
+          <h2>Le Projet</h2>
           <p class="description">{{ project.longDescription }}</p>
         </section>
       </ScrollReveal>
