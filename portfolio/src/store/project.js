@@ -31,6 +31,7 @@ export const projects = [
       "3 dimensions",
       "Joueurs absents remplacés par une IA",
     ],
+    longDescription: "Projet SAE de site Web et Application mobile du jeu Chromino",
   },
   {
     id: 3,
