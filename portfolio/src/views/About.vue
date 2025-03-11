@@ -124,8 +124,8 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
 
           <div class="soft-skill-card">
             <h3>Recueil de besoins</h3>
-            <p>Je me suis formé à récupérer un besoin d'un utilisateur de 0 lors de réunions afin de concevoir et développer un 
-              l'outils répondant à ces besoins.
+            <p>Je me suis formé à récupérer les besoins d'un utilisateur de 0 lors de réunions afin de concevoir et développer un 
+              l'outils répondant à ses attentes.
             </p>
           </div>
         </div>
