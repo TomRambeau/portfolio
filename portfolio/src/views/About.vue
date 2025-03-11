@@ -21,10 +21,13 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
         <h2>Expériences professionnelles</h2>
         <div class="timeline">
           <div class="timeline-item">
+            <div class="time-container">
+              <span class="timeline-period">juillet 2024</span>
+              <span class="duration">1 mois</span>
+            </div>
             <div class="timeline-content">
               <h3>Développeur intérimaire</h3>
               <p class="company">Safran Data Systems</p>
-              <p class="period">juillet 2024</p>
               <p class="description">
                 Conception et création d'un outils dédié à l'analyse de la variation de la charge en VBA.
               </p>
@@ -32,10 +35,13 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
           </div>
 
           <div class="timeline-item">
+            <div class="time-container">
+              <span class="timeline-period">Avril - Juin 2024</span>
+              <span class="duration">3 mois</span>
+            </div>
             <div class="timeline-content">
               <h3>Stage en développement</h3>
               <p class="company">Safran Data Systems</p>
-              <p class="period">Avril - Juin 2024</p>
               <p class="description">
                 Réalisation de cahiers des charges et créations de mutiples outils au support de la direction Industrielle en VBA.
               </p>
@@ -249,6 +255,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
 .timeline {
   position: relative;
   padding: 2rem 0;
+  margin-left: 120px;
 }
 
 .timeline-item {
@@ -265,6 +272,37 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
   width: 2px;
   height: 100%;
   background: var(--accent-color);
+}
+
+.time-container {
+  position: absolute;
+  left: -140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.timeline-period {
+  position: static;
+  background: var(--accent-color);
+  color: white;
+  font-size: 0.9rem;
+  width: 110px;
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.duration {
+  font-size: 0.85rem;
+  color: #666;
+  background: #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
 }
 
 .timeline-content {
@@ -400,6 +438,22 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
 
   .timeline-item {
     padding-left: 1rem;
+  }
+
+  .timeline {
+    margin-left: 0;
+  }
+  
+  .time-container {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-period {
+    width: auto;
   }
 }
 </style>
