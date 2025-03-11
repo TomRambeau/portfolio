@@ -1,14 +1,15 @@
 <script setup>
 import ScrollReveal from '@/components/ScrollReveal.vue'
+import { experiences } from '@/store/experience.js'
 </script>
 
 <template>
   <div class="about-container">
     <ScrollReveal>
       <section class="hero-section">
-        <img src="@/assets/avatar.png" alt="Tom Rambeau" class="profile-image">
+        <img src="/images/avatar.png" alt="Tom Rambeau" class="profile-image">
         <div class="hero-content">
-          <h1 class="title">A propos de moi..</h1>
+          <h1 class="title">À propos de moi...</h1>
           <p class="bio">
               Étudiant entrepreneur en 2ème année en BUT Informatique, je souhaite approfondir mes compétences en développement informatique.
           </p>
@@ -20,32 +21,25 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
       <section class="experience-section">
         <h2>Expériences professionnelles</h2>
         <div class="timeline">
-          <div class="timeline-item">
+          <div class="timeline-item" v-for="experience in experiences" :key="experience.id">
             <div class="time-container">
-              <span class="timeline-period">juillet 2024</span>
-              <span class="duration">1 mois</span>
+              <span class="timeline-period">{{ experience.period }}</span>
+              <span class="duration">{{ experience.duration }}</span>
             </div>
-            <div class="timeline-content">
-              <h3>Développeur intérimaire</h3>
-              <p class="company">Safran Data Systems</p>
+            <router-link :to="{ name: 'experience-detail', params: { id: experience.id }}" 
+                        class="timeline-content">
+              <h3>{{ experience.title }}</h3>
+              <p class="company">{{ experience.company }}</p>
               <p class="description">
-                Conception et création d'un outils dédié à l'analyse de la variation de la charge en VBA.
+                {{ experience.description }}
               </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="time-container">
-              <span class="timeline-period">Avril - Juin 2024</span>
-              <span class="duration">3 mois</span>
-            </div>
-            <div class="timeline-content">
-              <h3>Stage en développement</h3>
-              <p class="company">Safran Data Systems</p>
-              <p class="description">
-                Réalisation de cahiers des charges et créations de mutiples outils au support de la direction Industrielle en VBA.
-              </p>
-            </div>
+              <div class="view-more">
+                <span>Voir les détails</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </router-link>
           </div>
         </div>
       </section>
@@ -58,13 +52,16 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
           <div class="skill-category">
             <h3>Backend</h3>
             <ul>
-              <li>VBA</li>
               <li>.NET / C#</li>
               <li>PHP</li>
-              <li>Ruby / Rails</li>
-              <li>REST APIs:
-                .NET / SpringBoot
-              </li>
+              <li>Ruby</li>
+              <li>Java</li>
+              <li>VBA</li>
+              <li>Python</li>
+              <h3>REST APIs:</h3>
+              <li>.NET</li>
+              <li>SpringBoot</li>
+              <li>Ruby on Rails</li>
             </ul>
           </div>
 
@@ -79,6 +76,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
             <ul>
               <li>Kotlin / Android</li>
               <li>RactNative</li>
+              <li>.NET MAUI</li>
             </ul>
           </div>
 
@@ -88,6 +86,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
               <li>MySQL</li>
               <li>PostgreSQL</li>
               <li>MongoDB</li>
+              <li>MCD / MLD</li>
             </ul>
           </div>
 
@@ -98,9 +97,11 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
               <li>Docker</li>
               <li>CI/CD</li>
               <li>VsCode / VisualStudio</li>
-              <li>IntelliJ</li>
               <li>Android Studio</li>
+              <li>IntelliJ</li>
               <li>NotePad++</li>
+              <li>Github Copilot</li>
+              <li>UML</li>
             </ul>
           </div>
         </div>
@@ -143,7 +144,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
         <h2>Diplômes et Formations</h2>
         <div class="education-grid">
           <div class="education-card">
-            <div class="education-year">2021 - 2025</div>
+            <div class="education-year">2022 - 2026</div>
             <h3>BUT Informatique</h3>
             <p class="education-school">IUT de Clermont-Ferrand</p>
             <p class="education-description">
@@ -152,7 +153,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
           </div>
 
           <div class="education-card">
-            <div class="education-year">2021</div>
+            <div class="education-year">2022</div>
             <h3>Baccalauréat Général</h3>
             <p class="education-school">Lycée de Jean-Paul de Rocca Serra</p>
             <p class="education-description">
@@ -309,11 +310,49 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
   background: #f5f5f5;
   padding: 2rem;
   border-radius: 12px;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #f0f0f0;
+}
+
+.view-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover .view-more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.view-more svg {
+  transition: transform 0.2s ease;
+}
+
+.timeline-content:hover .view-more svg {
+  transform: translateX(5px);
 }
 
 .timeline-content h3 {
   color: var(--text-color);
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;  
 }
 
 .company {

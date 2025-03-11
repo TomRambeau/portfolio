@@ -12,7 +12,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
           <div class="separator"></div>
           <p class="description">
             Étudiant passionné par le développement d'applications.
-            Ayant obtenu le statut d'Étudiant Entrepreneur à l'organisation Pépite afin de concrétiser mes projets.
+            Ayant obtenu le statut d'Étudiant Entrepreneur à l'organisation Pépite afin de concrétiser ses projets.
           </p>
           <div class="cta-group">
             <router-link to="/projects" class="cta-button primary">
@@ -41,7 +41,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
       <ScrollReveal :delay="200">
         <div class="image-container">
           <div class="image-wrapper">
-            <img src="@/assets/avatar.png" alt="Tom Rambeau" class="profile-image">
+            <img src="/images/avatar.png" alt="Tom Rambeau" class="profile-image">
             <div class="image-decoration"></div>
           </div>
         </div>

@@ -45,7 +45,7 @@ onMounted(() => {
 
       <ScrollReveal>
         <section class="project-section">
-          <h2>Le Projet</h2>
+          <h2>Description</h2>
           <p class="description">{{ project.longDescription }}</p>
         </section>
       </ScrollReveal>
@@ -168,7 +168,7 @@ onMounted(() => {
 }
 
 .project-section {
-  background: white;
+  background: #F5F5F5;
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -189,15 +189,19 @@ onMounted(() => {
 .technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
+  padding: 0.5rem;
 }
 
 .tech-badge {
-  background: #f1f5f9;
-  color: var(--accent-color);
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
+  background: #f8fafc;
+  color: #334155;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
 .features-list {
@@ -258,6 +262,15 @@ onMounted(() => {
 
   .project-links {
     flex-direction: column;
+  }
+
+  .technologies {
+    gap: 0.75rem;
+  }
+  
+  .tech-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 }
 </style>

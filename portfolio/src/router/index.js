@@ -30,6 +30,12 @@ const router = createRouter({
       props: true
     },
     {
+      path: '/experience/:id',
+      name: 'experience-detail',
+      component: () => import('../views/ExperienceDetail.vue'),
+      props: true
+    },
+    {
       path: '/hobbies',
       name: 'hobbies',
       component: () => import('../views/Hobbies.vue')
