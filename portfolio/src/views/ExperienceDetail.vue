@@ -34,7 +34,7 @@ onMounted(() => {
       <ScrollReveal>
         <section class="detail-section">
           <h3>Description</h3>
-          <p>{{ experience.description }}</p>
+          <p>{{ experience.longDescription }}</p>
         </section>
       </ScrollReveal>
 

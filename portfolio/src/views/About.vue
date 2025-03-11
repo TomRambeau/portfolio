@@ -28,11 +28,19 @@ import { experiences } from '@/store/experience.js'
             </div>
             <router-link :to="{ name: 'experience-detail', params: { id: experience.id }}" 
                         class="timeline-content">
-              <h3>{{ experience.title }}</h3>
-              <p class="company">{{ experience.company }}</p>
-              <p class="description">
-                {{ experience.description }}
-              </p>
+              <div class="company-header">
+                <div class="company-logo">
+                  <img v-if="experience.companyLogo" :src="experience.companyLogo" :alt="experience.company">
+                  <svg v-else viewBox="0 0 24 24" fill="currentColor" class="default-company-icon">
+                    <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>{{ experience.title }}</h3>
+                  <p class="company">{{ experience.company }}</p>
+                </div>
+              </div>
+              <p class="description">{{ experience.description }}</p>
               <div class="view-more">
                 <span>Voir les détails</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -370,6 +378,37 @@ import { experiences } from '@/store/experience.js'
 .description {
   color: #666;
   line-height: 1.6;
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+
+.company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.default-company-icon {
+  width: 24px;
+  height: 24px;
+  color: #94a3b8;
 }
 
 .soft-skills-section {
