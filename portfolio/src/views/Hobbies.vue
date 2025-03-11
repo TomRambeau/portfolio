@@ -69,7 +69,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue';
 }
 
 .hobby-card {
-  background: white;
+  background: #f5f5f5;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

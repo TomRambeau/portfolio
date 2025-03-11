@@ -43,7 +43,7 @@ defineProps({
 
 <style scoped>
 .project-card {
-  background: white;
+  background: #f5f5f5;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
