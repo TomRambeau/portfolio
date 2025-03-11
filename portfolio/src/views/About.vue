@@ -8,7 +8,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
       <section class="hero-section">
         <img src="@/assets/avatar.png" alt="Tom Rambeau" class="profile-image">
         <div class="hero-content">
-          <h1 class="title">A propos de moi..</h1>
+          <h1 class="title">A propos de moi...</h1>
           <p class="bio">
               Étudiant entrepreneur en 2ème année en BUT Informatique, je souhaite approfondir mes compétences en développement informatique.
           </p>
@@ -21,10 +21,13 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
         <h2>Expériences professionnelles</h2>
         <div class="timeline">
           <div class="timeline-item">
+            <div class="timeline-period-container">
+              <span class="timeline-period">Juillet 2024</span>
+              <span class="duration">1 mois</span>
+            </div>
             <div class="timeline-content">
               <h3>Développeur intérimaire</h3>
               <p class="company">Safran Data Systems</p>
-              <p class="period">juillet 2024</p>
               <p class="description">
                 Conception et création d'un outils dédié à l'analyse de la variation de la charge en VBA.
               </p>
@@ -32,10 +35,13 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
           </div>
 
           <div class="timeline-item">
+            <div class="timeline-period-container">
+              <span class="timeline-period">Avril - Juin 2024</span>
+              <span class="duration">3 mois</span>
+            </div>
             <div class="timeline-content">
               <h3>Stage en développement</h3>
               <p class="company">Safran Data Systems</p>
-              <p class="period">Avril - Juin 2024</p>
               <p class="description">
                 Réalisation de cahiers des charges et créations de mutiples outils au support de la direction Industrielle en VBA.
               </p>
@@ -249,10 +255,10 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
 .timeline {
   position: relative;
   padding: 2rem 0;
+  margin-left: 140px; /* Ajout de marge gauche pour aligner avec le titre */
 }
 
 .timeline-item {
-  margin-bottom: 3rem;
   position: relative;
   padding-left: 2rem;
 }
@@ -264,7 +270,8 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
   top: 0;
   width: 2px;
   height: 100%;
-  background: var(--accent-color);
+  background: var(--accent-color)
+
 }
 
 .timeline-content {
@@ -273,26 +280,35 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
   border-radius: 12px;
 }
 
-.timeline-content h3 {
-  color: var(--text-color);
-  margin-bottom: 0.5rem;
+.timeline-period-container {
+  position: absolute;
+  left: -140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
 }
 
-.company {
-  color: var(--accent-color);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.period {
-  color: #666;
+.timeline-period {
+  position: static;
+  background: var(--accent-color);
+  color: white;
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  width: 110px;
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.description {
+.duration {
+  font-size: 0.85rem;
   color: #666;
-  line-height: 1.6;
+  background: #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
 }
 
 .soft-skills-section {
@@ -386,6 +402,13 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
   line-height: 1.5;
 }
 
+.experience-section {
+  position: relative; /* Ajout pour le contexte de positionnement */
+  padding-left: 0;   /* Reset du padding */
+}
+
+
+
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
@@ -400,6 +423,14 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
 
   .timeline-item {
     padding-left: 1rem;
+  }
+
+  .timeline {
+    margin-left: 0;
+  }
+
+  .experience-section h2 {
+    margin-left: 0;
   }
 }
 </style>

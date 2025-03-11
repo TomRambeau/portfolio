@@ -168,7 +168,7 @@ onMounted(() => {
 }
 
 .project-section {
-  background: white;
+  background: #f5f5f5;
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
