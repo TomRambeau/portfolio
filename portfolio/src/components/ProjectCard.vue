@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-  <router-link :to="`/project/${id}`" class="project-card">
+  <router-link :to="{ name: 'project-detail', params: { id: id }}" class="project-card">
     <div class="project-image-container">
       <img :src="image" :alt="title" class="project-image">
       <div class="project-overlay">

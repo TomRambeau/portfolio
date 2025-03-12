@@ -15,13 +15,13 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
             Ayant obtenu le statut d'Étudiant Entrepreneur à l'organisation Pépite afin de concrétiser ses projets.
           </p>
           <div class="cta-group">
-            <router-link to="/projects" class="cta-button primary">
+            <router-link to="/portfolio/projects" class="cta-button primary">
               Voir mes projets
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </router-link>
-            <router-link to="/contact" class="cta-button secondary">
+            <router-link to="/portfolio/contact" class="cta-button secondary">
               Me contacter
             </router-link>
           </div>
