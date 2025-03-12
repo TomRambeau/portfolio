@@ -3,7 +3,7 @@ export const experiences = [
     id: 1,
     title: "Développeur intérimaire",
     company: "Safran Data Systems",
-    companyLogo: "/images/experiences/safran-logo-short.jpg",
+    companyLogo: "https://tomrambeau.github.io/portfolio/images/experiences/safran-logo-short.jpg",
     period: "juillet 2024",
     duration: "1 mois",
     description: "Amélioration d'un outils de récupération des données de charges et création d'un outils de centralisation et d'analyse de ces données.",
@@ -15,13 +15,13 @@ export const experiences = [
       "Création d'un outils permettant de centraliser l'ensemble des données de charges et de les exploiter sous forme d'un DashBoard interactif Excel",
     ],
     impact: "Diminution du temps d'exécution de l'outils de récupération de données de charges de plus de 2/3, l'amenant approxiamtivement à 30  minutes. L'outils rendu donc utilisable quotidiennement. Données de charges sur plus d'une année de fichier Excel avec des formats différents standardisées et centralisées. Àide à la décision grâce aux analyses et modélisations réalisées.",
-    image: "/images/experiences/safran.data-system-arcachon.jpg"
+    image: "https://tomrambeau.github.io/portfolio/images/experiences/safran.data-system-arcachon.jpg"
   },
   {
     id: 2,
     title: "Stage en développement",
     company: "Safran Data Systems",
-    companyLogo: "/images/experiences/safran-logo-short.jpg",
+    companyLogo: "https://tomrambeau.github.io/portfolio/images/experiences/safran-logo-short.jpg",
     period: "Avril - Juin 2024",
     duration: "3 mois",
     description: "Réalisation de cahiers des charges et créations de mutiples outils au support de la direction Industrielle en VBA.",
@@ -33,6 +33,6 @@ export const experiences = [
       "interfaces permettant d'automatiser les traitements pénibles de dossiers (renommage, triage, suprression,...)"
     ],
     impact: "Réalisation 1: 1/2 heures de gangées pour mon tuteur de stage par semaine. Réalisatoin 2: choisir de manière modulable des parties pour constituer le dossier à remplir (25/70 pages). Réalisation 3: gain de temps important + diminution forte de tâches pénibles n'apportant pas de valeurs directes.",
-    image: "/images/experiences/safran.data-system-arcachon.jpg"
+    image: "https://tomrambeau.github.io/portfolio/images/experiences/safran.data-system-arcachon.jpg"
   }
 ];

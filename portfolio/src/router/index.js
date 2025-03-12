@@ -4,43 +4,43 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
+      path: '/portfolio/home',
       name: 'home',
       component: () => import('../views/Home.vue')
     },
     {
       path: '/portfolio',
-      redirect: '/'
+      redirect: '/portfolio/home'
     },
     {
-      path: '/about',
+      path: '/portfolio/about',
       name: 'about',
       component: () => import('../views/About.vue')
     },
     {
-      path: '/projects',
+      path: '/portfolio/projects',
       name: 'projects',
       component: () => import('../views/Projects.vue')
     },
     {
-      path: '/contact',
+      path: '/portfolio/contact',
       name: 'contact',
       component: () => import('../views/Contact.vue')
     },
     {
-      path: '/project/:id',
+      path: '/portfolio/project/:id',
       name: 'project-detail',
       component: () => import('../views/ProjectDetail.vue'),
       props: true
     },
     {
-      path: '/experience/:id',
+      path: '/portfolio/experience/:id',
       name: 'experience-detail',
       component: () => import('../views/ExperienceDetail.vue'),
       props: true
     },
     {
-      path: '/hobbies',
+      path: '/portfolio/hobbies',
       name: 'hobbies',
       component: () => import('../views/Hobbies.vue')
     },

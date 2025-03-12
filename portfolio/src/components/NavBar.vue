@@ -5,11 +5,11 @@
         <span class="logo-text">TR</span>
       </div>
       <div class="nav-links">
-        <router-link to="/" class="nav-link">Accueil</router-link>
-        <router-link to="/about" class="nav-link">À propos</router-link>
-        <router-link to="/projects" class="nav-link">Projets</router-link>
-        <router-link to="/hobbies" class="nav-link">Loisirs</router-link>
-        <router-link to="/contact" class="nav-link">Contact</router-link>
+        <router-link to="/portfolio/home" class="nav-link">Accueil</router-link>
+        <router-link to="/portfolio/about" class="nav-link">À propos</router-link>
+        <router-link to="/portfolio/projects" class="nav-link">Projets</router-link>
+        <router-link to="/portfolio/hobbies" class="nav-link">Loisirs</router-link>
+        <router-link to="/portfolio/contact" class="nav-link">Contact</router-link>
       </div>
     </nav>
   </header>

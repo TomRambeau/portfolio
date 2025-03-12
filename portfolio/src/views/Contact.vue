@@ -27,7 +27,7 @@ import ContactForm from '@/components/ContactForm.vue'
         <div class="cv-section">
           <h2>Télécharger mon CV</h2>
           <p>Obtenir un point de vue détaillé de mes compétences et expériences.</p>
-          <a href="/cv.pdf" download class="download-btn">
+          <a href="https://tomrambeau.github.io/portfolio/cv.pdf" download class="download-btn">
             Télécharger le CV
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
