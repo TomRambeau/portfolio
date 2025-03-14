@@ -128,6 +128,7 @@ const goToAbout = () => {
   border-radius: 50px;
   font-weight: 500;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .cta-button.primary {

@@ -40,7 +40,7 @@ const handleSubmit = (event) => {
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
-  background: white;
+  background: #f5f5f5;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
