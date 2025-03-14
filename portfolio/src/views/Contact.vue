@@ -4,12 +4,16 @@ import ContactForm from '@/components/ContactForm.vue'
 
 <template>
   <div class="contact-container">
-    <h1 class="title">Me contacter</h1>
-    <p class="subtitle">N'hésitez pas à me contacter pour toutes informations supplémentaires ou opportunités</p>
+    <div class="header-section">
+      <h1 class="title">Me contacter</h1>
+      <p class="subtitle">N'hésitez pas à me contacter pour toutes informations supplémentaires ou opportunités</p>
+    </div>
     
     <div class="content-wrapper">
       <div class="contact-info">
-        <ContactForm />
+        <div class="form-card">
+          <ContactForm />
+        </div>
         
         <div class="social-links">
           <a href="https://www.linkedin.com/in/tom-rambeau-40b75320b/" target="_blank" class="social-btn linkedin">
@@ -24,23 +28,27 @@ import ContactForm from '@/components/ContactForm.vue'
       </div>
       
       <div class="side-content">
-        <div class="cv-section">
-          <h2>Télécharger mon CV</h2>
-          <p>Obtenir un point de vue détaillé de mes compétences et expériences.</p>
-          <a href="/cv.pdf" download class="download-btn">
-            Télécharger le CV
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-          </a>
+        <div class="info-card cv-section">
+          <div class="card-content">
+            <h2>Télécharger mon CV</h2>
+            <p>Obtenir un point de vue détaillé de mes compétences et expériences.</p>
+            <a href="/cv.pdf" download class="download-btn">
+              Télécharger le CV
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div class="location-section">
-          <h2>Localisation</h2>
-          <p>Clermont-Ferrand, France</p>
-          <p>Disponible pour des opportunités en France</p>
+        <div class="info-card location-section">
+          <div class="card-content">
+            <h2>Localisation</h2>
+            <p>Clermont-Ferrand, France</p>
+            <p>Disponible pour des opportunités en France</p>
+          </div>
         </div>
       </div>
     </div>
@@ -51,149 +59,160 @@ import ContactForm from '@/components/ContactForm.vue'
 .contact-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2rem;
+  min-height: calc(100vh - 44px);
+  display: flex;
+  flex-direction: column;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-top: 2rem;
 }
 
 .title {
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, #0077b5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.2;
 }
 
 .subtitle {
-  text-align: center;
+  font-size: 1.2rem;
   color: #666;
-  margin-bottom: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .content-wrapper {
   display: grid;
-  gap: 4rem;
-  grid-template-columns: 2fr 1fr;
-}
-
-.contact-info {
-  flex: 2;
-}
-
-.side-content {
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 
-.cv-section {
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  text-align: center;
+.form-card, .info-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cv-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-color);
+.form-card:hover, .info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.cv-section p {
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: var(--accent-color);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.download-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.card-content {
+  padding: 2.5rem;
 }
 
 .social-links {
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .social-btn {
+  flex: 1;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 12px;
   text-decoration: none;
   color: white;
-  font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.social-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.github {
-  background: #24292e;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .linkedin {
-  background: #0077b5;
+  background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
 }
 
 .email {
-  background: #ea4335;
+  background: linear-gradient(135deg, #ea4335 0%, #ff7043 100%);
 }
 
-.location-section {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.location-section h2 {
-  color: var(--text-color);
+.cv-section, .location-section {
+  height: fit-content;
+}
+
+.cv-section h2, .location-section h2 {
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #0077b5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.location-section p {
-  color: #666;
-  margin-bottom: 0.5rem;
+.download-btn {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #0077b5 100%);
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .content-wrapper {
     grid-template-columns: 1fr;
   }
-  
-  .social-links {
-    justify-content: center;
+
+  .title {
+    font-size: 3rem;
   }
-  
+
   .side-content {
-    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .side-content {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .card-content {
+    padding: 1.5rem;
   }
 }
 </style>

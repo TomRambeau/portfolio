@@ -145,11 +145,19 @@ const router = useRouter();
 }
 
 .cta-button.third {
-  background: transparent;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  background: #f5f5f7;
+  color: #666;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
+.cta-button.third:hover {
+  background: #ececec;
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
 .cta-button:hover {
   transform: translateY(-2px);
