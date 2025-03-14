@@ -1,13 +1,11 @@
 <script setup>
 import ScrollReveal from '@/components/ScrollReveal.vue'
 import { useRouter } from 'vue-router';
-import { getAssetUrl } from '@/config'
+import { getPageUrl } from '@/config'
 
 const router = useRouter();
 
-const goToAbout = () => {
-  router.push('/about');
-};
+
 </script>
 
 <template>
@@ -23,16 +21,19 @@ const goToAbout = () => {
             Ayant obtenu le statut d'Étudiant Entrepreneur à l'organisation Pépite afin de concrétiser ses projets.
           </p>
           <div class="cta-group">
-            <router-link to="/projects" class="cta-button primary">
+            <router-link :to="getPageUrl('/projects')" class="cta-button primary">
               Voir mes projets
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </router-link>
-            <router-link to="/contact" class="cta-button secondary">
+            <router-link :to="getPageUrl('/contact')" class="cta-button secondary">
               Me contacter
             </router-link>
-            <button class="cta-button" @click="goToAbout">En savoir plus</button>
+            <router-link :to="getPageUrl('/about')" class="cta-button third">
+              En savoir plus
+            </router-link>
+           
           </div>
           <div class="tech-stack">
             <p class="tech-title">Technologies favorites :</p>
@@ -50,7 +51,7 @@ const goToAbout = () => {
       <ScrollReveal :delay="200">
         <div class="image-container">
           <div class="image-wrapper">
-            <img :src="getAssetUrl('/avatar.png')" alt="Tom Rambeau" class="profile-image">
+            <img :src="getPageUrl('/images/avatar.png')" alt="Tom Rambeau" class="profile-image">
             <div class="image-decoration"></div>
           </div>
         </div>
@@ -142,6 +143,13 @@ const goToAbout = () => {
   color: var(--accent-color);
   border: 2px solid var(--accent-color);
 }
+
+.cta-button.third {
+  background: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
 
 .cta-button:hover {
   transform: translateY(-2px);

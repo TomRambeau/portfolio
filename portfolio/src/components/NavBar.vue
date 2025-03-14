@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import { getPageUrl } from '@/config/index.js'
 
 const route = useRoute();
 const isMobileMenuOpen = ref(false);
@@ -34,11 +35,11 @@ watch(() => route.path, () => {
       </button>
 
       <div class="nav-links" :class="{ 'mobile-menu-open': isMobileMenuOpen }">
-        <router-link to="/" class="nav-link">Accueil</router-link>
-        <router-link to="/about" class="nav-link">Profil</router-link>
-        <router-link to="/projects" class="nav-link">Projets</router-link>
-        <router-link to="/hobbies" class="nav-link">Loisirs</router-link>
-        <router-link to="/contact" class="nav-link">Contact</router-link>
+        <router-link :to="getPageUrl('/')" class="nav-link">Accueil</router-link>
+        <router-link :to="getPageUrl('/about')" class="nav-link">Profil</router-link>
+        <router-link :to="getPageUrl('/projects')" class="nav-link">Projets</router-link>
+        <router-link :to="getPageUrl('/hobbies')" class="nav-link">Loisirs</router-link>
+        <router-link :to="getPageUrl('/contact')" class="nav-link">Contact</router-link>
       </div>
     </nav>
   </header>

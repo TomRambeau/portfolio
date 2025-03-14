@@ -1,13 +1,17 @@
+const baseUrl = import.meta.env.VITE_APP_BASE_URL
+const assetsUrl = import.meta.env.VITE_APP_ASSETS_URL
+const apiUrl = import.meta.env.VITE_APP_API_URL
+
 export const config = {
-  baseUrl: import.meta.env.VITE_APP_BASE_URL || 'http://localhost:5173',
-  assetsUrl: import.meta.env.VITE_APP_ASSETS_URL || '/images',
-  apiUrl: import.meta.env.VITE_APP_API_URL || 'http://localhost:3000/api',
+  baseUrl,
+  assetsUrl,
+  apiUrl,
 }
 
 export function getAssetUrl(path) {
-  return `${config.assetsUrl}${path}`
+  return `${assetsUrl}${path}`
 }
 
 export function getPageUrl(path) {
-  return `${config.baseUrl}${path}`
+  return `${baseUrl}${path}`
 }

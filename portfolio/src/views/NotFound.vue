@@ -1,10 +1,14 @@
+<script setup>
+import { getPageUrl } from '@/config/index.js'
+</script>
+
 <template>
   <div class="not-found">
     <div class="content">
       <h1 class="error-code">404</h1>
       <h2 class="error-message">Page Not Found</h2>
       <p class="description">La page que vous recherchez semble avoir disparu dans le cyberespace.</p>
-      <router-link to="/" class="home-btn">
+      <router-link :to="getPageUrl('/')" class="home-btn">
         Retour à l'accueil
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>

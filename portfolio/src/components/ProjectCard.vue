@@ -1,4 +1,6 @@
 <script setup>
+import { getPageUrl } from '@/config/index.js'
+
 defineProps({
   id: Number,
   title: String,
@@ -11,9 +13,9 @@ defineProps({
 </script>
 
 <template>
-  <router-link :to="`/project/${id}`" class="project-card">
+   <a :href="getPageUrl('/project/' + id)" class="project-card">
     <div class="project-image-container">
-      <img :src="image" :alt="title" class="project-image">
+      <img :src="getPageUrl(image)" :alt="title" class="project-image">
       <div class="project-overlay">
         <h3>{{ title }}</h3>
         
@@ -28,7 +30,7 @@ defineProps({
         </span>
       </div>
     </div>
-  </router-link>
+  </a>
 </template>
 
 <style scoped>

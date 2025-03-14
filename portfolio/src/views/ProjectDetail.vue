@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { projects } from '@/store/project.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
+import { getPageUrl } from '@/config/index.js'
 
 const route = useRoute();
 const router = useRouter();
@@ -21,7 +22,7 @@ onMounted(() => {
 <template>
   <div v-if="project" class="project-detail">
     <div class="hero-section">
-      <img :src="project.image" :alt="project.title" class="hero-image">
+      <img :src="getPageUrl(project.image)" :alt="project.title" class="hero-image">
       <div class="hero-overlay">
         <ScrollReveal>
           <h1 class="project-title">{{ project.title }}</h1>
@@ -78,7 +79,7 @@ onMounted(() => {
 
     <ScrollReveal>
       <div class="back-button-container">
-        <router-link to="/projects" class="back-button">
+        <router-link :to="getPageUrl('/projects')" class="back-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
