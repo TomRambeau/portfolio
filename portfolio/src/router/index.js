@@ -51,8 +51,18 @@ const router = createRouter({
     }
   ],
   scrollBehavior(to, from, savedPosition) {
-    // Toujours retourner en haut de la page lors d'un changement de route
-    return { top: 0, behavior: 'smooth' }
+    // Si l'utilisateur utilise les boutons back/forward du navigateur
+    if (savedPosition) {
+      return savedPosition;
+    }
+    
+    // Pour les nouvelles navigations
+    return new Promise((resolve) => {
+      // Petit délai pour laisser la transition se faire
+      setTimeout(() => {
+        resolve({ top: 0, behavior: 'smooth' });
+      }, 300); // Ajustez ce délai en fonction de la durée de vos transitions
+    });
   }
 })
 
