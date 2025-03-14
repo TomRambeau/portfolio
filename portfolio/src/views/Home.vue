@@ -1,6 +1,7 @@
 <script setup>
 import ScrollReveal from '@/components/ScrollReveal.vue'
 import { useRouter } from 'vue-router';
+import { getAssetUrl } from '@/config'
 
 const router = useRouter();
 
@@ -49,7 +50,7 @@ const goToAbout = () => {
       <ScrollReveal :delay="200">
         <div class="image-container">
           <div class="image-wrapper">
-            <img src="/images/avatar.png" alt="Tom Rambeau" class="profile-image">
+            <img :src="getAssetUrl('/avatar.png')" alt="Tom Rambeau" class="profile-image">
             <div class="image-decoration"></div>
           </div>
         </div>
