@@ -13,7 +13,7 @@ const router = createRouter({
       redirect: '/portfolio/home'
     },
     {
-      path: '/portfolio/about',
+      path: '/about',
       name: 'about',
       component: () => import('../views/About.vue')
     },
@@ -49,7 +49,11 @@ const router = createRouter({
       name: 'not-found',
       component: () => import('../views/NotFound.vue')
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // Toujours retourner en haut de la page lors d'un changement de route
+    return { top: 0, behavior: 'smooth' }
+  }
 })
 
 export default router
