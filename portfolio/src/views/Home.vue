@@ -1,5 +1,12 @@
 <script setup>
 import ScrollReveal from '@/components/ScrollReveal.vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goToAbout = () => {
+  router.push('/about');
+};
 </script>
 
 <template>
@@ -24,6 +31,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
             <router-link to="/contact" class="cta-button secondary">
               Me contacter
             </router-link>
+            <button class="cta-button" @click="goToAbout">En savoir plus</button>
           </div>
           <div class="tech-stack">
             <p class="tech-title">Technologies favorites :</p>
