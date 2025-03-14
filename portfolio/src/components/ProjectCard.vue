@@ -1,5 +1,6 @@
 <script setup>
 import { getPageUrl } from '@/config/index.js'
+import { getAssetUrl } from '@/config/index.js'
 
 defineProps({
   id: Number,
@@ -15,7 +16,7 @@ defineProps({
 <template>
    <a :href="getPageUrl('/project/' + id)" class="project-card">
     <div class="project-image-container">
-      <img :src="getPageUrl(image)" :alt="title" class="project-image">
+      <img :src="getAssetUrl(image)" :alt="title" class="project-image">
       <div class="project-overlay">
         <h3>{{ title }}</h3>
         

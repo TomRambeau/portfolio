@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { projects } from '@/store/project.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
 import { getPageUrl } from '@/config/index.js'
+import { getAssetUrl } from '@/config/index.js'
 
 const route = useRoute();
 const router = useRouter();
@@ -22,7 +23,7 @@ onMounted(() => {
 <template>
   <div v-if="project" class="project-detail">
     <div class="hero-section">
-      <img :src="getPageUrl(project.image)" :alt="project.title" class="hero-image">
+      <img :src="getAssetUrl(project.image)" :alt="project.title" class="hero-image">
       <div class="hero-overlay">
         <ScrollReveal>
           <h1 class="project-title">{{ project.title }}</h1>

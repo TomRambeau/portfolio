@@ -41,6 +41,7 @@ import ContactForm from '@/components/ContactForm.vue'
               </svg>
             </a>
           </div>
+
         </div>
 
         <div class="info-card location-section">
@@ -180,6 +181,12 @@ import ContactForm from '@/components/ContactForm.vue'
 .icon {
   width: 24px;
   height: 24px;
+}
+
+.side-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;  /* Ajout d'un espacement de 2rem entre les éléments */
 }
 
 @media (max-width: 1024px) {

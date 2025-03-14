@@ -2,13 +2,14 @@
 import ScrollReveal from '@/components/ScrollReveal.vue'
 import { experiences } from '@/store/experience.js'
 import { getPageUrl } from '@/config/index.js'
+import { getAssetUrl } from '@/config/index.js'
 </script>
 
 <template>
   <div class="about-container">
     <ScrollReveal>
       <section class="hero-section">
-        <img :src="getPageUrl('/images/avatar.png')" alt="Tom Rambeau" class="profile-image">
+        <img :src="getAssetUrl('/images/avatar.png')" alt="Tom Rambeau" class="profile-image">
         <div class="hero-content">
           <h1 class="title">À propos de moi...</h1>
           <p class="bio">
@@ -30,7 +31,7 @@ import { getPageUrl } from '@/config/index.js'
             <a :href="getPageUrl('/experience/' + experience.id)" class="timeline-content">
               <div class="company-header">
                 <div class="company-logo">
-                  <img v-if="experience.companyLogo" :src="getPageUrl(experience.companyLogo)" :alt="experience.company">
+                  <img v-if="experience.companyLogo" :src="getAssetUrl(experience.companyLogo)" :alt="experience.company">
                   <svg v-else viewBox="0 0 24 24" fill="currentColor" class="default-company-icon">
                     <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
                   </svg>
