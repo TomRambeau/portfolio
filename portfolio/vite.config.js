@@ -7,24 +7,19 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig(({ mode }) => {
   // Charge les variables d'environnement
+  // eslint-disable-next-line no-undef
   const env = loadEnv(mode, process.cwd(), '')
-  
+
   return {
     plugins: [
       vue(),
       vueDevTools(),
     ],
-    base: mode === 'production' ? '/portfolio/' : '/',
+    base: '/portfolio/', // Forcer la base URL pour le déploiement
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       },
-    },
-    define: {
-      // Expose les variables d'environnement à l'application
-      __BASE_URL__: JSON.stringify(env.VITE_APP_BASE_URL),
-      __ASSETS_URL__: JSON.stringify(env.VITE_APP_ASSETS_URL),
-      __API_URL__: JSON.stringify(env.VITE_APP_API_URL),
     }
   }
 })

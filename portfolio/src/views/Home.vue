@@ -1,10 +1,6 @@
 <script setup>
 import ScrollReveal from '@/components/ScrollReveal.vue'
-import { useRouter } from 'vue-router';
-import { getPageUrl } from '@/config/index.js'
 import { getAssetUrl } from '@/config/index.js'
-const router = useRouter();
-
 
 </script>
 
@@ -21,19 +17,19 @@ const router = useRouter();
             Ayant obtenu le statut d'Étudiant Entrepreneur à l'organisation Pépite afin de concrétiser ses projets.
           </p>
           <div class="cta-group">
-            <router-link :to="getPageUrl('/projects')" class="cta-button primary">
+            <router-link to="/projects" class="cta-button primary">
               Voir mes projets
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </router-link>
-            <router-link :to="getPageUrl('/contact')" class="cta-button secondary">
+            <router-link to="/contact" class="cta-button secondary">
               Me contacter
             </router-link>
-            <router-link :to="getPageUrl('/about')" class="cta-button third">
+            <router-link to="/about" class="cta-button third">
               En savoir plus
             </router-link>
-           
+
           </div>
           <div class="tech-stack">
             <p class="tech-title">Technologies favorites :</p>
@@ -51,7 +47,7 @@ const router = useRouter();
       <ScrollReveal :delay="200">
         <div class="image-container">
           <div class="image-wrapper">
-            <img :src="getAssetUrl('/images/avatar.png')" alt="Tom Rambeau" class="profile-image">
+            <img src="/images/avatar.png" alt="Tom Rambeau" class="profile-image">
             <div class="image-decoration"></div>
           </div>
         </div>

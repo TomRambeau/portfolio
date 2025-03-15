@@ -9,7 +9,7 @@ import { getAssetUrl } from '@/config/index.js'
   <div class="about-container">
     <ScrollReveal>
       <section class="hero-section">
-        <img :src="getAssetUrl('/images/avatar.png')" alt="Tom Rambeau" class="profile-image">
+        <img src="/images/avatar.png" alt="Tom Rambeau" class="profile-image">
         <div class="hero-content">
           <h1 class="title">À propos de moi...</h1>
           <p class="bio">
@@ -28,7 +28,7 @@ import { getAssetUrl } from '@/config/index.js'
               <span class="timeline-period">{{ experience.period }}</span>
               <span class="duration">{{ experience.duration }}</span>
             </div>
-            <a :href="getPageUrl('/experience/' + experience.id)" class="timeline-content">
+            <router-link :to="'/experiences/' + experience.id" class="timeline-content">
               <div class="company-header">
                 <div class="company-logo">
                   <img v-if="experience.companyLogo" :src="getAssetUrl(experience.companyLogo)" :alt="experience.company">
@@ -48,7 +48,7 @@ import { getAssetUrl } from '@/config/index.js'
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </div>
-            </a>
+            </router-link>
           </div>
         </div>
       </section>
@@ -125,7 +125,7 @@ import { getAssetUrl } from '@/config/index.js'
             <h3>Autonome</h3>
             <p>Capable de me former tout seul à de nouvelles technologies, de travailler en étant indépendant et de m'adapter à de nouveaux environnements.</p>
           </div>
-          
+
           <div class="soft-skill-card">
             <h3>Force de proposition</h3>
             <p>La résolution de problème est ce que je préfère, ainsi je propose des solutions de manière naturelle et instinctive.</p>
@@ -166,7 +166,7 @@ import { getAssetUrl } from '@/config/index.js'
             <h3>Baccalauréat Général</h3>
             <p class="education-school">Lycée de Jean-Paul de Rocca Serra</p>
             <p class="education-description">
-              Spécialités Mathématiques et Physiques-Chimie 
+              Spécialités Mathématiques et Physiques-Chimie
               Option Mathématiques Expertes
               Mention Bien
             </p>
@@ -197,7 +197,7 @@ import { getAssetUrl } from '@/config/index.js'
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
+
 }
 
 .hero-content {
@@ -362,7 +362,7 @@ import { getAssetUrl } from '@/config/index.js'
 .timeline-content h3 {
   color: var(--text-color);
   margin-bottom: 0.5rem;
-  font-size: 1.3rem;  
+  font-size: 1.3rem;
 }
 
 .company {
@@ -523,7 +523,7 @@ import { getAssetUrl } from '@/config/index.js'
   .timeline {
     margin-left: 0;
   }
-  
+
   .time-container {
     position: static;
     flex-direction: row;
@@ -531,7 +531,7 @@ import { getAssetUrl } from '@/config/index.js'
     gap: 8px;
     margin-bottom: 1rem;
   }
-  
+
   .timeline-period {
     width: auto;
   }

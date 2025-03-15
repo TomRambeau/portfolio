@@ -3,7 +3,6 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { experiences } from '@/store/experience.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
-import { getPageUrl } from '@/config/index.js';
 import { getAssetUrl } from '@/config/index.js';
 
 const route = useRoute();
@@ -13,7 +12,7 @@ const experience = ref(null);
 onMounted(() => {
   const experienceId = parseInt(route.params.id);
   experience.value = experiences.find(e => e.id === experienceId);
-  
+
   if (!experience.value) {
     router.push({ name: 'not-found' });
   }
@@ -44,8 +43,8 @@ onMounted(() => {
         <section class="detail-section">
           <h3>Technologies utilisées</h3>
           <div class="tech-list">
-            <span v-for="tech in experience.technologies" 
-                  :key="tech" 
+            <span v-for="tech in experience.technologies"
+                  :key="tech"
                   class="tech-badge">
               {{ tech }}
             </span>
@@ -57,7 +56,7 @@ onMounted(() => {
         <section class="detail-section">
           <h3>Réalisations principales</h3>
           <ul class="achievements-list">
-            <li v-for="achievement in experience.achievements" 
+            <li v-for="achievement in experience.achievements"
                 :key="achievement">
               {{ achievement }}
             </li>
@@ -75,7 +74,7 @@ onMounted(() => {
 
     <ScrollReveal>
       <div class="back-button-container">
-        <router-link :to="getPageUrl('/about')" class="back-button">
+        <router-link to="/about" class="back-button">
 
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>

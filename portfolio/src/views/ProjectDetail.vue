@@ -13,7 +13,7 @@ const project = ref(null);
 onMounted(() => {
   const projectId = parseInt(route.params.id);
   project.value = projects.find(p => p.id === projectId);
-  
+
   if (!project.value) {
     router.push({ name: 'not-found' });
   }
@@ -56,8 +56,8 @@ onMounted(() => {
         <section class="project-section">
           <h2>Technologies utilisées</h2>
           <div class="technologies">
-            <span v-for="tech in project.technologies" 
-                  :key="tech" 
+            <span v-for="tech in project.technologies"
+                  :key="tech"
                   class="tech-badge">
               {{ tech }}
             </span>
@@ -69,7 +69,7 @@ onMounted(() => {
         <section class="project-section">
           <h2>Fonctionnalités principales</h2>
           <ul class="features-list">
-            <li v-for="feature in project.features" 
+            <li v-for="feature in project.features"
                 :key="feature">
               {{ feature }}
             </li>
@@ -80,7 +80,7 @@ onMounted(() => {
 
     <ScrollReveal>
       <div class="back-button-container">
-        <router-link :to="getPageUrl('/projects')" class="back-button">
+        <router-link to="/projects" class="back-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -269,7 +269,7 @@ onMounted(() => {
   .technologies {
     gap: 0.75rem;
   }
-  
+
   .tech-badge {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;

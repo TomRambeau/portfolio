@@ -1,5 +1,4 @@
 <script setup>
-import { getPageUrl } from '@/config/index.js'
 import { getAssetUrl } from '@/config/index.js'
 
 defineProps({
@@ -14,12 +13,12 @@ defineProps({
 </script>
 
 <template>
-   <a :href="getPageUrl('/project/' + id)" class="project-card">
+   <router-link :to="'/projects/' + id" class="project-card">
     <div class="project-image-container">
       <img :src="getAssetUrl(image)" :alt="title" class="project-image">
       <div class="project-overlay">
         <h3>{{ title }}</h3>
-        
+
       </div>
     </div>
     <div class="project-content">
@@ -31,7 +30,7 @@ defineProps({
         </span>
       </div>
     </div>
-  </a>
+   </router-link>
 </template>
 
 <style scoped>
