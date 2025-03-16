@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { projects } from '@/store/project.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
 import PhoneMockup from '@/components/PhoneMockup.vue';
-import { getPageUrl } from '@/config/index.js'
+import DesktopMockup from '@/components/DesktopMockup.vue';
 import { getAssetUrl } from '@/config/index.js'
 
 const route = useRoute();
@@ -35,6 +35,24 @@ const previousScreen = () => {
   currentScreenIndex.value = currentScreenIndex.value === 0
     ? phoneScreens.length - 1
     : currentScreenIndex.value - 1;
+};
+
+const currentDesktopIndex = ref(0);
+const desktopScreens = {
+  2: ['/projects/3dmino/3DMino.png', '/projects/3dmino/screen2.png', '/projects/3dmino/screen3.png'],
+  3: ['/projects/youdebunk/logoYouDebunk.png', '/projects/youdebunk/screen2.png', '/projects/youdebunk/screen3.png']
+};
+
+const nextDesktopScreen = () => {
+  const screens = desktopScreens[project.value.id];
+  currentDesktopIndex.value = (currentDesktopIndex.value + 1) % screens.length;
+};
+
+const previousDesktopScreen = () => {
+  const screens = desktopScreens[project.value.id];
+  currentDesktopIndex.value = currentDesktopIndex.value === 0
+    ? screens.length - 1
+    : currentDesktopIndex.value - 1;
 };
 </script>
 
@@ -96,6 +114,24 @@ const previousScreen = () => {
               </button>
               <PhoneMockup :screen-image="getAssetUrl(phoneScreens[currentScreenIndex])" />
               <button @click="nextScreen" class="control-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal v-else-if="project.id === 2 || project.id === 3">
+          <div class="desktop-demo-section">
+            <div class="mockup-controls">
+              <button @click="previousDesktopScreen" class="control-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+              <DesktopMockup :screen-image="getAssetUrl(desktopScreens[project.id][currentDesktopIndex])" />
+              <button @click="nextDesktopScreen" class="control-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 18l6-6-6-6"/>
                 </svg>
@@ -309,12 +345,34 @@ const previousScreen = () => {
   box-shadow: none;
 }
 
+.desktop-demo-section {
+  position: sticky;
+  top: 2rem;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+.mockup-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
 @media (max-width: 1024px) {
   .project-content-grid {
     grid-template-columns: 1fr;
   }
 
   .phone-demo-section {
+    position: static;
+    order: -1;
+    margin-bottom: 2rem;
+  }
+
+  .desktop-demo-section {
     position: static;
     order: -1;
     margin-bottom: 2rem;
