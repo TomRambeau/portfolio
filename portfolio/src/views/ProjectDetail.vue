@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { projects } from '@/store/project.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
+import PhoneMockup from '@/components/PhoneMockup.vue';
 import { getPageUrl } from '@/config/index.js'
 import { getAssetUrl } from '@/config/index.js'
 
@@ -18,6 +19,23 @@ onMounted(() => {
     router.push({ name: 'not-found' });
   }
 });
+
+const currentScreenIndex = ref(0);
+const phoneScreens = [
+  '/projects/domisoins/domisoins.png',
+  '/projects/domisoins/screen2.png',
+  '/projects/domisoins/screen3.png'
+];
+
+const nextScreen = () => {
+  currentScreenIndex.value = (currentScreenIndex.value + 1) % phoneScreens.length;
+};
+
+const previousScreen = () => {
+  currentScreenIndex.value = currentScreenIndex.value === 0
+    ? phoneScreens.length - 1
+    : currentScreenIndex.value - 1;
+};
 </script>
 
 <template>
@@ -45,25 +63,47 @@ onMounted(() => {
         </div>
       </ScrollReveal>
 
-      <ScrollReveal>
-        <section class="project-section">
-          <h2>Description</h2>
-          <p class="description">{{ project.longDescription }}</p>
-        </section>
-      </ScrollReveal>
+      <div class="project-content-grid">
+        <div class="project-info">
+          <ScrollReveal>
+            <section class="project-section">
+              <h2>Description</h2>
+              <p class="description">{{ project.longDescription }}</p>
+            </section>
+          </ScrollReveal>
 
-      <ScrollReveal>
-        <section class="project-section">
-          <h2>Technologies utilisées</h2>
-          <div class="technologies">
-            <span v-for="tech in project.technologies"
-                  :key="tech"
-                  class="tech-badge">
-              {{ tech }}
-            </span>
+          <ScrollReveal>
+            <section class="project-section">
+              <h2>Technologies utilisées</h2>
+              <div class="technologies">
+                <span v-for="tech in project.technologies"
+                      :key="tech"
+                      class="tech-badge">
+                  {{ tech }}
+                </span>
+              </div>
+            </section>
+          </ScrollReveal>
+        </div>
+
+        <ScrollReveal v-if="project.id === 1">
+          <div class="phone-demo-section">
+            <div class="phone-controls">
+              <button @click="previousScreen" class="control-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+              <PhoneMockup :screen-image="getAssetUrl(phoneScreens[currentScreenIndex])" />
+              <button @click="nextScreen" class="control-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
           </div>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </div>
 
       <ScrollReveal v-if="project.features">
         <section class="project-section">
@@ -253,6 +293,34 @@ onMounted(() => {
   height: 20px;
 }
 
+.project-content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.phone-demo-section {
+  position: sticky;
+  top: 2rem;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 1024px) {
+  .project-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-demo-section {
+    position: static;
+    order: -1;
+    margin-bottom: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-section {
     height: 40vh;
@@ -273,6 +341,15 @@ onMounted(() => {
   .tech-badge {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+
+  .phone-controls {
+    gap: 1rem;
+  }
+
+  .control-btn {
+    width: 36px;
+    height: 36px;
   }
 }
 </style>
