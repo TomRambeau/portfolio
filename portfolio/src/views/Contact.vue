@@ -1,6 +1,6 @@
 <script setup>
 import ContactForm from '@/components/ContactForm.vue'
-import { getPageUrl } from '@/config/index.js'
+
 </script>
 
 <template>
