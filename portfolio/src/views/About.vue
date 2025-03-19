@@ -317,21 +317,26 @@ import { getAssetUrl } from '@/config/index.js'
 }
 
 .timeline-content {
-  background: #f5f5f5;
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
   padding: 2rem;
   border-radius: 12px;
   display: block;
   color: inherit;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
+              0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-content:hover {
+  border-color: var(--accent-color);
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: #f0f0f0;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15),
+              0 10px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
 }
 
 .view-more {
@@ -340,23 +345,23 @@ import { getAssetUrl } from '@/config/index.js'
   gap: 0.5rem;
   margin-top: 1rem;
   color: var(--accent-color);
-  font-weight: 500;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
 }
 
-.timeline-content:hover .view-more {
-  opacity: 1;
-  transform: translateX(0);
+.view-more span {
+  transition: transform 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 .view-more svg {
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
+.timeline-content:hover .view-more span,
 .timeline-content:hover .view-more svg {
-  transform: translateX(5px);
+  transform: translateX(10px);
 }
 
 .timeline-content h3 {

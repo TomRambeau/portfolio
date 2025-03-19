@@ -29,6 +29,12 @@ defineProps({
           {{ tech }}
         </span>
       </div>
+      <div class="view-more">
+        <span>Voir les détails</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
     </div>
    </router-link>
 </template>
@@ -43,11 +49,14 @@ defineProps({
   display: block; /* Ajoutez cette ligne pour s'assurer que le lien occupe tout l'espace */
   text-decoration: none; /* Ajoutez cette ligne pour enlever le soulignement du lien */
   color: inherit; /* Ajoutez cette ligne pour garder la couleur du texte originale */
+  position: relative;
+  border: 2px solid transparent;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-color);
 }
 
 .project-image-container {
@@ -189,5 +198,30 @@ defineProps({
 .icon {
   width: 20px;
   height: 20px;
+}
+
+.view-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+}
+
+.view-more span {
+  transition: transform 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.view-more svg {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .view-more span,
+.project-card:hover .view-more svg {
+  transform: translateX(10px);
 }
 </style>

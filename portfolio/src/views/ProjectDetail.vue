@@ -18,6 +18,11 @@ onMounted(() => {
     router.push({ name: 'not-found' });
   }
 });
+
+const openLightbox = (imageUrl) => {
+  // TODO: Implement lightbox functionality
+  window.open(getAssetUrl(imageUrl), '_blank');
+};
 </script>
 
 <template>
@@ -74,6 +79,21 @@ onMounted(() => {
               {{ feature }}
             </li>
           </ul>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal v-if="project.gallery">
+        <section class="project-section gallery-section">
+          <h2>Galerie</h2>
+          <div class="image-gallery">
+            <div v-for="(image, index) in project.gallery"
+                 :key="index"
+                 class="gallery-item"
+                 @click="openLightbox(image.url)">
+              <img :src="getAssetUrl(image.url)" :alt="image.caption">
+              <div class="image-caption">{{ image.caption }}</div>
+            </div>
+          </div>
         </section>
       </ScrollReveal>
     </div>
@@ -253,6 +273,59 @@ onMounted(() => {
   height: 20px;
 }
 
+.gallery-section {
+  background: #F5F5F5;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 0.9rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .image-caption {
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   .hero-section {
     height: 40vh;
@@ -273,6 +346,11 @@ onMounted(() => {
   .tech-badge {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+
+  .image-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
   }
 }
 </style>
