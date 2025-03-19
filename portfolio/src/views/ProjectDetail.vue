@@ -369,37 +369,59 @@ const openLightbox = (imageUrl) => {
 
 .featured-gallery {
   width: 100%;
-  overflow-x: auto;
   padding: 2rem 0;
+  overflow-x: hidden;
 }
 
 .gallery-track {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
-  padding: 0 10%;
+  padding: 2rem 5%;
+  justify-content: flex-start; /* Changé de center à flex-start */
+  align-items: flex-start;
 }
 
 .featured-gallery-item {
   flex: 0 0 auto;
-  width: 400px;
+  width: calc(33.333% - 1.34rem); /* Ajusté pour compenser le gap et éviter les sauts de ligne non désirés */
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
+@media (max-width: 1200px) {
+  .featured-gallery-item {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-gallery-item {
+    width: 100%; /* Simplifié car plus besoin de calculer avec le gap en pleine largeur */
+  }
+
+  .gallery-track {
+    padding: 1rem 5%;
+    gap: 1.5rem;
+  }
+}
+
 .featured-gallery-item img {
   width: 100%;
   height: auto;
-  max-height: 300px;
+  max-height: 500px;
   object-fit: contain;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.2);
   padding: 10px;
+  transition: all 0.3s ease;
 }
 
-.featured-gallery-item:hover {
-  transform: translateY(-10px);
+.featured-gallery-item:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
 
 .featured-caption {
@@ -419,6 +441,11 @@ const openLightbox = (imageUrl) => {
 .featured-gallery-item:hover .featured-caption {
   opacity: 1;
   transform: translateY(0);
+}
+
+.gallery-navigation,
+.nav-button {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -461,16 +488,21 @@ const openLightbox = (imageUrl) => {
   }
 
   .gallery-track {
-    padding: 0 1rem;
+    padding: 1rem 5%;
+    gap: 2rem;
   }
 
   .featured-gallery-item {
-    width: 300px;
+    width: 90vw;
   }
 
   .featured-gallery-item img {
     height: auto;
-    max-height: 225px;
+    max-height: 400px;
+  }
+
+  .gallery-navigation {
+    display: none;
   }
 }
 </style>

@@ -91,6 +91,10 @@ export const projects = [
       {
         url: "/projects/youDebunk/page_article_mobile.png",
         caption: "article mobile"
+      },
+      {
+        url: "/projects/youDebunk/page_article_mobile.png",
+        caption: "article mobile"
       }
     ],
   }
