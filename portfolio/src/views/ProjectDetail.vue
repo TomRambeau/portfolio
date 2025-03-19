@@ -51,13 +51,6 @@ const openLightbox = (imageUrl) => {
 
       <ScrollReveal>
         <section class="project-section">
-          <h2>Description</h2>
-          <p class="description">{{ project.longDescription }}</p>
-        </section>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <section class="project-section">
           <h2>Technologies utilisées</h2>
           <div class="technologies">
             <span v-for="tech in project.technologies"
@@ -66,6 +59,20 @@ const openLightbox = (imageUrl) => {
               {{ tech }}
             </span>
           </div>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <section class="project-section">
+          <h2>Description</h2>
+          <p class="description">{{ project.longDescription }}</p>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal v-if="project.workflow">
+        <section class="project-section">
+          <h2>Fonctionnement</h2>
+          <p class="description">{{ project.workflow }}</p>
         </section>
       </ScrollReveal>
 
@@ -80,6 +87,8 @@ const openLightbox = (imageUrl) => {
           </ul>
         </section>
       </ScrollReveal>
+
+
 
     </div>
 

@@ -7,6 +7,8 @@ export const projects = [
     technologies: ["IOS", "Android", ".NET MAUI", "C#", "XAML"],
     image: "/projects/domisoins/domisoins.png",
     demo:"https://youtube.com/shorts/avgBAYklWwg",
+    workflow: "Le professionnel de santé retrouve sur la page d'accueil de l'application les patients qu'il a ajouté. Ensuite, l'utilisateur peut planifier sa journée, sa semaine sur la page du planning voir même inclure une récurennce de rendez-vous. Il peut aussi en un clique créer l'itinéraire sur les applications de navigations (google maps, ...) passant par 1 ou tous les patients. Il pourra aussi voir les soins à effectuer pour chaque patient et prendre des notes sur les soins effectués.",
+
     features: [
       "Plannification des rendez-vous des patients",
       "Suivi des soins à domicile",
@@ -17,20 +19,28 @@ export const projects = [
     ],
     gallery: [
       {
-        url: "/projects/domisoins/domisoins.png",
-        caption: "Interface principale"
+        url: "/projects/domisoins/page_accueil.png",
+        caption: "Accueil / Liste des patients"
       },
       {
-        url: "/projects/domisoins/app2.png",
-        caption: "Planning des rendez-vous"
+        url:"/projects/domisoins/page_planning.png",
+        caption: "Planning"
       },
       {
-        url: "/projects/domisoins/app3.png",
-        caption: "Fiche patient"
+        url: "/projects/domisoins/page_ordonnanceListe.png",
+        caption: "Liste des ordonnances"
       },
       {
-        url: "/projects/domisoins/app4.png",
-        caption: "Navigation GPS"
+        url: "/projects/domisoins/page_ordonnance.png",
+        caption: "Ordonnance"
+      },
+      {
+        url: "/projects/domisoins/page_ajoutPatient.png",
+        caption: "Formulaire d'ajout de patient"
+      },
+      {
+        url: "/projects/domisoins/page_ajoutRdv.png",
+        caption: "Formulaire d'ajout de rendez-vous"
       }
     ],
   },
