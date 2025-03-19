@@ -497,21 +497,37 @@ const openLightbox = (imageUrl) => {
   }
 
   .gallery-track {
-    padding: 1rem 5%;
-    gap: 2rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .gallery-track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 
   .featured-gallery-item {
-    width: 90vw;
+    flex: 0 0 90%;
+    width: 90%;
+    margin-right: 1rem;
+    scroll-snap-align: center;
   }
 
-  .featured-gallery-item img {
-    height: auto;
-    max-height: 400px;
+  .featured-gallery-item:last-child {
+    margin-right: 0;
   }
 
-  .gallery-navigation {
-    display: none;
+  .featured-gallery {
+    overflow-x: auto;
+    padding: 1rem 0;
   }
 }
+
 </style>
