@@ -109,6 +109,26 @@ const openLightbox = (imageUrl) => {
         </router-link>
       </div>
     </ScrollReveal>
+
+    <div class="featured-section">
+      <div class="featured-content">
+        <ScrollReveal>
+          <h2 class="featured-title">Découvrez plus en images</h2>
+          <p class="featured-description">Explorez les différents aspects du projet à travers notre galerie visuelle</p>
+        </ScrollReveal>
+      </div>
+      <div class="featured-gallery">
+        <div class="gallery-track" v-if="project.gallery">
+          <div v-for="(image, index) in project.gallery"
+               :key="index"
+               class="featured-gallery-item"
+               @click="openLightbox(image.url)">
+            <img :src="getAssetUrl(image.url)" :alt="image.caption">
+            <div class="featured-caption">{{ image.caption }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -326,6 +346,91 @@ const openLightbox = (imageUrl) => {
   transform: translateY(0);
 }
 
+.featured-section {
+  width: 100%;
+  min-height: 600px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0;
+  margin: 4rem 0 0 0;
+  overflow: hidden;
+}
+
+.featured-content {
+  text-align: center;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.featured-title {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.featured-description {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #a0a0a0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.featured-gallery {
+  width: 100%;
+  overflow-x: auto;
+  padding: 2rem 0;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 2rem;
+  padding: 0 10%;
+}
+
+.featured-gallery-item {
+  flex: 0 0 auto;
+  width: 400px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.featured-gallery-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.featured-gallery-item:hover {
+  transform: translateY(-10px);
+}
+
+.featured-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.featured-gallery-item:hover .featured-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   .hero-section {
     height: 40vh;
@@ -351,6 +456,30 @@ const openLightbox = (imageUrl) => {
   .image-gallery {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+  }
+
+  .featured-section {
+    padding: 2rem 0;
+  }
+
+  .featured-title {
+    font-size: 2.5rem;
+  }
+
+  .featured-description {
+    font-size: 1.2rem;
+  }
+
+  .gallery-track {
+    padding: 0 1rem;
+  }
+
+  .featured-gallery-item {
+    width: 300px;
+  }
+
+  .featured-gallery-item img {
+    height: 225px;
   }
 }
 </style>

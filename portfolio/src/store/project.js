@@ -15,13 +15,30 @@ export const projects = [
       "Itinéraire de la tournée",
       "Itinéraire vers un patient",
     ],
-     },
+    gallery: [
+      {
+        url: "/projects/domisoins.png",
+        caption: "Interface principale"
+      },
+      {
+        url: "/projects/domisoins/app2.png",
+        caption: "Planning des rendez-vous"
+      },
+      {
+        url: "/projects/domisoins/app3.png",
+        caption: "Fiche patient"
+      },
+      {
+        url: "/projects/domisoins/app4.png",
+        caption: "Navigation GPS"
+      }
+    ],
+  },
   {
     id: 2,
     title: "3DMino",
     description: "Projet (Apprentissage) de site Web et Application mobile du jeu Chromino en équipe de 6.",
     longDescription: "La création d'un site web et d'une application mobile pour jouer au jeu Chromino en mode multijoueur ou contre une intelligence artificielle.",
-
     technologies: ["PHP","JS", "Twig/CSS", "Node.js","TRee.js", "Mysql", "Kotlin",
                   "Blazor", "EntityFramework", ".NET API REST"],
     image: "/projects/3DMino.png",
@@ -34,7 +51,21 @@ export const projects = [
       "Plusieurs modes de jeu paramétrables",
       "Joueurs absents remplacés par une IA"
     ],
+    gallery: [
+      {
+        url: "/projects/3DMino/game1.png",
+        caption: "Vue du jeu en 3D"
       },
+      {
+        url: "/projects/3DMino/game2.png",
+        caption: "Mode multijoueur"
+      },
+      {
+        url: "/projects/3DMino/game3.png",
+        caption: "Paramètres de partie"
+      }
+    ],
+  },
   {
     id: 3,
     title: "YouDebunk",
@@ -47,6 +78,20 @@ export const projects = [
       "Ajout de sources",
       "Mise en lumières du texte sourcé",
       "Pourcentage de vérifications des articles calculé"
+    ],
+    gallery: [
+      {
+        url: "/projects/youDebunk/article1.png",
+        caption: "Page d'accueil"
+      },
+      {
+        url: "/projects/youDebunk/article2.png",
+        caption: "Édition d'article"
+      },
+      {
+        url: "/projects/youDebunk/article3.png",
+        caption: "Vérification des sources"
+      }
     ],
   }
 ];
