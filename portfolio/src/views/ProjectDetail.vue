@@ -97,20 +97,22 @@ const openLightbox = (imageUrl) => {
 
     <div class="featured-section">
       <div class="featured-content">
-        <ScrollReveal>
+        <ScrollReveal v-if= "project.gallery">
           <h2 class="featured-title">Découvrez plus en images</h2>
-          <p class="featured-description">Explorez les différents aspects du projet à travers notre galerie visuelle</p>
+          <p class="featured-description">Explorez les fonctionnalités du projet à travers une galerie visuelle</p>
         </ScrollReveal>
       </div>
       <div class="featured-gallery">
         <div class="gallery-track" v-if="project.gallery">
-          <div v-for="(image, index) in project.gallery"
+          <ScrollReveal v-for="(image, index) in project.gallery"
                :key="index"
                class="featured-gallery-item"
-               @click="openLightbox(image.url)">
+               @click="openLightbox(image.url)"
+               :delay="index * 200">
+
             <img :src="getAssetUrl(image.url)" :alt="image.caption">
             <div class="featured-caption">{{ image.caption }}</div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>

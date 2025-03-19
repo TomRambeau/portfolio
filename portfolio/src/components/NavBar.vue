@@ -24,7 +24,7 @@ watch(() => route.path, () => {
   <header class="nav-header">
     <nav class="nav-container">
       <div class="logo">
-        <span class="logo-text">TR</span>
+        <router-link to="/" class="nav-logo"><span class="logo-text">TR</span></router-link>
       </div>
 
       <!-- Burger menu button -->
@@ -87,6 +87,9 @@ watch(() => route.path, () => {
 
 .logo-text:hover {
   opacity: 0.8;
+}
+.nav-logo {
+  text-decoration: none;
 }
 
 .nav-links {

@@ -78,20 +78,6 @@ export const projects = [
       "Ajout de sources",
       "Mise en lumières du texte sourcé",
       "Pourcentage de vérifications des articles calculé"
-    ],
-    gallery: [
-      {
-        url: "/projects/youDebunk/article1.png",
-        caption: "Page d'accueil"
-      },
-      {
-        url: "/projects/youDebunk/article2.png",
-        caption: "Édition d'article"
-      },
-      {
-        url: "/projects/youDebunk/article3.png",
-        caption: "Vérification des sources"
-      }
-    ],
+    ]
   }
 ];
