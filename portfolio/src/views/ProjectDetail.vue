@@ -18,6 +18,25 @@ onMounted(() => {
     router.push({ name: 'not-found' });
   }
 });
+
+const openLightbox = (imageUrl) => {
+  // TODO: Implement lightbox functionality
+  window.open(getAssetUrl(imageUrl), '_blank');
+};
+
+const currentGalleryIndex = ref(0);
+
+const nextImage = () => {
+  if (!project.value?.gallery) return;
+  currentGalleryIndex.value = (currentGalleryIndex.value + 1) % project.value.gallery.length;
+};
+
+const prevImage = () => {
+  if (!project.value?.gallery) return;
+  currentGalleryIndex.value = currentGalleryIndex.value === 0 
+    ? project.value.gallery.length - 1 
+    : currentGalleryIndex.value - 1;
+};
 </script>
 
 <template>
@@ -74,6 +93,45 @@ onMounted(() => {
               {{ feature }}
             </li>
           </ul>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal v-if="project.gallery">
+        <section class="project-section gallery-section">
+          <h2>Galerie</h2>
+          <div class="gallery-container">
+            <div class="gallery-content">
+              <img 
+                :src="getAssetUrl(project.gallery[currentGalleryIndex].url)" 
+                :alt="project.gallery[currentGalleryIndex].caption"
+                class="gallery-image"
+              >
+              <div class="gallery-overlay">
+                <h3 class="gallery-caption">{{ project.gallery[currentGalleryIndex].caption }}</h3>
+              </div>
+              <div class="gallery-navigation">
+                <button class="nav-button prev" @click="prevImage" :disabled="!project.gallery?.length">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                  </svg>
+                </button>
+                <button class="nav-button next" @click="nextImage" :disabled="!project.gallery?.length">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-thumbnails">
+              <button 
+                v-for="(image, index) in project.gallery" 
+                :key="index"
+                class="thumbnail-dot"
+                :class="{ active: index === currentGalleryIndex }"
+                @click="currentGalleryIndex = index"
+              ></button>
+            </div>
+          </div>
         </section>
       </ScrollReveal>
     </div>
@@ -253,26 +311,138 @@ onMounted(() => {
   height: 20px;
 }
 
+.gallery-section {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  margin: 4rem 0;
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 -2rem;
+  background: #000;
+}
+
+.gallery-content {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4rem 2rem 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.gallery-caption {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  pointer-events: none;
+}
+
+.nav-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  opacity: 0.7;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.nav-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #000;
+}
+
+.thumbnail-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.thumbnail-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
 @media (max-width: 768px) {
-  .hero-section {
-    height: 40vh;
+  .gallery-content {
+    height: 50vh;
+    min-height: 400px;
   }
 
-  .project-title {
-    font-size: 2.5rem;
+  .gallery-caption {
+    font-size: 1.5rem;
   }
 
-  .project-links {
-    flex-direction: column;
+  .nav-button {
+    width: 40px;
+    height: 40px;
   }
 
-  .technologies {
-    gap: 0.75rem;
+  .nav-button svg {
+    width: 20px;
+    height: 20px;
   }
 
-  .tech-badge {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+  .gallery-navigation {
+    padding: 0 1rem;
   }
 }
 </style>
