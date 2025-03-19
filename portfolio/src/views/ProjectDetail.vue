@@ -389,10 +389,13 @@ const openLightbox = (imageUrl) => {
 
 .featured-gallery-item img {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px;
 }
 
 .featured-gallery-item:hover {
@@ -466,7 +469,8 @@ const openLightbox = (imageUrl) => {
   }
 
   .featured-gallery-item img {
-    height: 225px;
+    height: auto;
+    max-height: 225px;
   }
 }
 </style>
