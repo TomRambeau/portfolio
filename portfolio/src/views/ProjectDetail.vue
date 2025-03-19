@@ -3,7 +3,6 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { projects } from '@/store/project.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
-import { getPageUrl } from '@/config/index.js'
 import { getAssetUrl } from '@/config/index.js'
 
 const route = useRoute();
@@ -82,20 +81,6 @@ const openLightbox = (imageUrl) => {
         </section>
       </ScrollReveal>
 
-      <ScrollReveal v-if="project.gallery">
-        <section class="project-section gallery-section">
-          <h2>Galerie</h2>
-          <div class="image-gallery">
-            <div v-for="(image, index) in project.gallery"
-                 :key="index"
-                 class="gallery-item"
-                 @click="openLightbox(image.url)">
-              <img :src="getAssetUrl(image.url)" :alt="image.caption">
-              <div class="image-caption">{{ image.caption }}</div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
     </div>
 
     <ScrollReveal>
