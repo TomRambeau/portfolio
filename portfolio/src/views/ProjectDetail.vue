@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { projects } from '@/store/project.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
 import { getAssetUrl } from '@/config/index.js'
+import { marked } from 'marked';
 
 const route = useRoute();
 const router = useRouter();
@@ -65,7 +66,7 @@ const openLightbox = (imageUrl) => {
       <ScrollReveal>
         <section class="project-section">
           <h2>Description</h2>
-          <p class="description">{{ project.longDescription }}</p>
+          <p class="description" v-html="marked(project.longDescription)"></p>
         </section>
       </ScrollReveal>
 
@@ -222,6 +223,11 @@ const openLightbox = (imageUrl) => {
 .description {
   color: #666;
   line-height: 1.6;
+}
+
+.description :deep(strong) {
+  font-weight: 600;
+  color: var(--accent-color);
 }
 
 .technologies {
