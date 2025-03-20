@@ -3,11 +3,20 @@ export const projects = [
     id: 1,
     title: "DomiSoins",
     description: "Application mobile pour les soins à domicile.",
-    longDescription: "Domisoins est l'application mobile pour les **professionnels de soin à domicile**. Elle permet aux praticiens de planifier leurs rendez-vous, de suivre les soins à domicile et de générer l'itinéraire de la tournée. Domisoins est une application intuitive et facile à utiliser, qui permet de gagner du temps et de simplifier la gestion des soins à domicile.",
+    longDescription: "Domisoins est l'application mobile pour les **professionnels de soin à domicile**." +
+                    "Elle permet aux praticiens de **planifier leurs rendez-vous**, de **suivre les soins à domicile** " +
+                    "et de **générer l'itinéraire de la tournée**." +
+                    "Domisoins est une application **intuitive** et **facile à utiliser**, qui permet de gagner du temps " +
+                    "et de simplifier la gestion des soins à domicile.",
     technologies: ["IOS", "Android", ".NET MAUI", "C#", "XAML"],
     image: "/projects/domisoins/domisoins.png",
     demo:"https://youtube.com/shorts/avgBAYklWwg",
-    workflow: "Le professionnel de santé retrouve sur la page d'accueil de l'application les patients qu'il a ajouté. Ensuite, l'utilisateur peut planifier sa journée, sa semaine sur la page du planning voir même inclure une récurennce de rendez-vous. Il peut aussi en un clique créer l'itinéraire sur les applications de navigations (google maps, ...) passant par 1 ou tous les patients. Il pourra aussi voir les soins à effectuer pour chaque patient et prendre des notes sur les soins effectués.",
+    workflow: "Le professionnel de santé retrouve sur la **page d'accueil** de l'application les patients qu'il a ajouté." +
+              "Ensuite, l'utilisateur peut **planifier sa journée**, sa semaine sur la page du planning voir même inclure " +
+              "une **récurennce de rendez-vous**." +
+              "Il peut aussi en **un clique** créer l'itinéraire sur les applications de navigations (google maps, ...) " +
+              "passant par 1 ou tous les patients." +
+              "Il pourra aussi voir les **soins à effectuer** pour chaque patient et **prendre des notes** sur les soins effectués.",
     features: [
       "Plannification des rendez-vous des patients",
       "Suivi des soins à domicile",
@@ -47,13 +56,19 @@ export const projects = [
     id: 2,
     title: "3DMino",
     description: "Projet (Apprentissage) de site Web et Application mobile du jeu Chromino en équipe de 6.",
-    longDescription: "La création d'un site web et d'une application mobile pour jouer au jeu Chromino en mode multijoueur ou contre une intelligence artificielle.",
+    longDescription: "La création d'un **site web** et d'une **application mobile** pour jouer au jeu Chromino\n" +
+                    "à plusieurs **en ligne** ou contre une **intelligence artificielle**.",
     technologies: ["PHP","JS", "Twig/CSS", "Node.js","TRee.js", "Mysql", "Kotlin",
                   "Blazor", "EntityFramework", ".NET API REST"],
     image: "/projects/3Dmino/3DMino.png",
     demo: "https://www.youtube.com/watch?v=Z8-836uHfRw",
-    workflow: "En entrant sur la page d'accueil du site, on peut lister les lobbies en cours et en rejoindre un pas encore lancé. On peut aussi créer un looby en choisissant les paramètres de la partie (mode 3D, plusieurs formes, plusieurs tailles, ...). Une fois dans le lobby, le maitre du lobby peut lancer la partie ensuite les joueurs peuvent un à un poser leurs chrominos chaucun leurs tours. Si un joueur a quitté la partie, il est remplacé par une IA ne bloquant pas les autres joueurs. Le jeu se termine quand un joueur n'a plus de chromino ou que la pioche est vide.",
-
+    workflow: "En entrant sur la page d'accueil du site, on peut **lister les lobbies** en cours et en rejoindre un pas encore lancé." +
+              "On peut aussi **créer un looby** en choisissant les paramètres de la partie (**mode 3D**, plusieurs formes, " +
+              "plusieurs tailles, ...).\n\n" +
+              "Une fois dans le lobby, le **maitre du lobby** peut lancer la partie ensuite les joueurs peuvent un à un " +
+              "poser leurs chrominos chaucun leurs tours." +
+              "Si un joueur a quitté la partie, il est **remplacé par une IA** ne bloquant pas les autres joueurs." +
+              "Le jeu se termine quand un joueur n'a plus de chromino ou que la pioche est vide.",
     features: [
       "Jouer en ligne à plusieurs",
       "Jeu en 3D possible",
@@ -81,7 +96,7 @@ export const projects = [
     id: 3,
     title: "YouDebunk",
     description: "Projet (Apprentissage) de site Web et Application mobile de publication d'articles vérifiés en équipe de 5.",
-    longDescription: " La création d'un site web et d'une application mobile pour publier des articles sourcés avec un calcul de pourcentage de vérification.",
+    longDescription: "La création d'un **site web** et d'une **application mobile** pour publier des **articles sourcés** avec un **calcul de pourcentage** de vérification.",
     technologies: ["PHP", "JavaScript", "Twig/CSS", "html/CSS", "Mysql", "Kotlin", "Blazor", "SpringBoot"],
     image: "/projects/youDebunk/logoYouDebunk.png",
     workflow: "",

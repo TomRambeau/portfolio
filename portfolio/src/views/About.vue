@@ -1,8 +1,8 @@
 <script setup>
 import ScrollReveal from '@/components/ScrollReveal.vue'
 import { experiences } from '@/store/experience.js'
-import { getPageUrl } from '@/config/index.js'
 import { getAssetUrl } from '@/config/index.js'
+import { marked } from 'marked'
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import { getAssetUrl } from '@/config/index.js'
         <div class="hero-content">
           <h1 class="title">À propos de moi...</h1>
           <p class="bio">
-              Étudiant entrepreneur en 2ème année en BUT Informatique, je souhaite approfondir mes compétences en développement informatique.
+              Étudiant entrepreneur en 2ème année en BUT Informatique, je souhaite approfondir mes compétences en développement informatique. (pitch + domisoins pépite)
           </p>
         </div>
       </section>
@@ -41,7 +41,7 @@ import { getAssetUrl } from '@/config/index.js'
                   <p class="company">{{ experience.company }}</p>
                 </div>
               </div>
-              <p class="description">{{ experience.description }}</p>
+              <p class="description" v-html="marked(experience.description)" > </p>
               <div class="view-more">
                 <span>Voir les détails</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

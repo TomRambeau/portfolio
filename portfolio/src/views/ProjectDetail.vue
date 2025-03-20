@@ -50,18 +50,7 @@ const openLightbox = (imageUrl) => {
         </div>
       </ScrollReveal>
 
-      <ScrollReveal>
-        <section class="project-section">
-          <h2>Technologies utilisées</h2>
-          <div class="technologies">
-            <span v-for="tech in project.technologies"
-                  :key="tech"
-                  class="tech-badge">
-              {{ tech }}
-            </span>
-          </div>
-        </section>
-      </ScrollReveal>
+
 
       <ScrollReveal>
         <section class="project-section">
@@ -73,7 +62,7 @@ const openLightbox = (imageUrl) => {
       <ScrollReveal v-if="project.workflow">
         <section class="project-section">
           <h2>Fonctionnement</h2>
-          <p class="description">{{ project.workflow }}</p>
+          <p class="description" v-html="marked(project.workflow)"></p>
         </section>
       </ScrollReveal>
 
@@ -86,6 +75,19 @@ const openLightbox = (imageUrl) => {
               {{ feature }}
             </li>
           </ul>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <section class="project-section">
+          <h2>Technologies utilisées</h2>
+          <div class="technologies">
+            <span v-for="tech in project.technologies"
+                  :key="tech"
+                  class="tech-badge">
+              {{ tech }}
+            </span>
+          </div>
         </section>
       </ScrollReveal>
 
@@ -108,7 +110,7 @@ const openLightbox = (imageUrl) => {
     <div class="featured-section">
       <div class="featured-content">
         <ScrollReveal v-if= "project.gallery">
-          <h2 class="featured-title">Découvrez plus en images</h2>
+          <h2 class="featured-title">Aperçu visuel du projet</h2>
           <p class="featured-description">Explorez les fonctionnalités du projet à travers une galerie visuelle</p>
         </ScrollReveal>
       </div>

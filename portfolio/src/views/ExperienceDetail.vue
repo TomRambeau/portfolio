@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { experiences } from '@/store/experience.js';
 import ScrollReveal from '@/components/ScrollReveal.vue';
 import { getAssetUrl } from '@/config/index.js';
+import { marked } from 'marked'
 
 const route = useRoute();
 const router = useRouter();
@@ -34,14 +35,28 @@ onMounted(() => {
     <div class="content-container">
       <ScrollReveal>
         <section class="detail-section">
-          <h3>Description</h3>
-          <p>{{ experience.longDescription }}</p>
+          <h2>Description</h2>
+          <p v-html="marked(experience.longDescription)"></p>
         </section>
       </ScrollReveal>
 
+
+      <ScrollReveal v-if="experience.achievements">
+        <section class="detail-section">
+          <h2>Réalisations principales</h2>
+          <ul class="achievements-list">
+            <li v-for="achievement in experience.achievements"
+                :key="achievement">
+              {{ achievement }}
+            </li>
+          </ul>
+        </section>
+      </ScrollReveal>
+
+
       <ScrollReveal>
         <section class="detail-section">
-          <h3>Technologies utilisées</h3>
+          <h2>Technologies utilisées</h2>
           <div class="tech-list">
             <span v-for="tech in experience.technologies"
                   :key="tech"
@@ -52,22 +67,10 @@ onMounted(() => {
         </section>
       </ScrollReveal>
 
-      <ScrollReveal v-if="experience.achievements">
-        <section class="detail-section">
-          <h3>Réalisations principales</h3>
-          <ul class="achievements-list">
-            <li v-for="achievement in experience.achievements"
-                :key="achievement">
-              {{ achievement }}
-            </li>
-          </ul>
-        </section>
-      </ScrollReveal>
-
       <ScrollReveal v-if="experience.impact">
         <section class="detail-section">
-          <h3>Impact</h3>
-          <p>{{ experience.impact }}</p>
+          <h2>Impact</h2>
+          <p v-html="marked(experience.impact)"></p>
         </section>
       </ScrollReveal>
     </div>
@@ -148,10 +151,20 @@ onMounted(() => {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.detail-section h3 {
-  color: var(--accent-color);
+.detail-section h2 {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  color: var(--text-color);
+}
+
+.detail-section p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.detail-section :deep(strong) {
+  font-weight: 600;
+  color: var(--accent-color);
 }
 
 .tech-list {
