@@ -91,7 +91,7 @@ export const projects = [
         caption: "mode 3D"
       },
       {
-        ur: "/projects/3Dmino/rules.gif",
+        url: "/projects/3Dmino/rules.gif",
         caption: "fonctionnement du jeu"
       }
     ],

@@ -428,12 +428,13 @@ const openLightbox = (imageUrl) => {
   width: 100%;
   height: auto;
   max-height: 500px;
-  object-fit: contain;
+  object-fit: scale-down; /* Changé de contain à scale-down pour mieux gérer les GIF */
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.2);
   padding: 10px;
-  transition: all 0.3s ease;
+  image-rendering: auto; /* Ajout pour améliorer le rendu des GIF */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .featured-gallery-item:hover img {
