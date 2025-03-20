@@ -92,20 +92,16 @@ export const projects = [
     gallery: [
       {
         url: "/projects/youDebunk/page_accueil_web.png",
-        caption: "page d'accueil web"
+        caption: "Accueil web"
       },
       {
         url: "/projects/youDebunk/page_accueil_mobile.png",
-        caption: "page d'accueil mobile"
+        caption: "Accueil mobile"
       },
       {
         url: "/projects/youDebunk/page_article_mobile.png",
-        caption: "article mobile"
+        caption: "Article mobile"
       },
-      {
-        url: "/projects/youDebunk/page_article_mobile.png",
-        caption: "article mobile"
-      }
     ],
   }
 ];
