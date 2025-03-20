@@ -110,7 +110,7 @@ const openLightbox = (imageUrl) => {
     <div class="featured-section">
       <div class="featured-content">
         <ScrollReveal v-if= "project.gallery">
-          <h2 class="featured-title">Aperçu visuel du projet</h2>
+          <h2 class="featured-title">Aperçu visuel de l'application</h2>
           <p class="featured-description">Explorez les fonctionnalités du projet à travers une galerie visuelle</p>
         </ScrollReveal>
       </div>

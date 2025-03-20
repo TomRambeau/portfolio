@@ -79,16 +79,20 @@ export const projects = [
     ],
     gallery: [
       {
-        url: "/projects/3DMino/game1.png",
-        caption: "Vue du jeu en 3D"
+        url: "/projects/3Dmino/page_lobby.png",
+        caption: "Lobby"
       },
       {
-        url: "/projects/3DMino/game2.png",
-        caption: "Mode multijoueur"
+        url: "/projects/3Dmino/page_jeu.png",
+        caption: "partie classique"
       },
       {
-        url: "/projects/3DMino/game3.png",
-        caption: "Paramètres de partie"
+        url: "/projects/3Dmino/page_jeu_3D.png",
+        caption: "mode 3D"
+      },
+      {
+        ur: "/projects/3Dmino/rules.gif",
+        caption: "fonctionnement du jeu"
       }
     ],
   },
@@ -99,7 +103,10 @@ export const projects = [
     longDescription: "La création d'un **site web** et d'une **application mobile** pour publier des **articles sourcés** avec un **calcul de pourcentage** de vérification.",
     technologies: ["PHP", "JavaScript", "Twig/CSS", "html/CSS", "Mysql", "Kotlin", "Blazor", "SpringBoot"],
     image: "/projects/youDebunk/logoYouDebunk.png",
-    workflow: "",
+    workflow: "Sur la page d'accueil, on peut **lister les articles** publiés et **lire** ceux qui nous intéressent." +
+              "On peut aussi **ajouter un article** en remplissant un formulaire avec les sources, le texte, l'image." +
+              "Ensuite, on peut voir les **sources** et le **texte sourcé** mis en lumière pour voir les vérifications." +
+              "Un **pourcentage de vérification** de l'article est calculé automatiquement.",
 
     features: [
       "Publication d'articles",
