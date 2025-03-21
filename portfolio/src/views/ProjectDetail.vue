@@ -575,7 +575,7 @@ const openLightbox = (imageUrl) => {
   .demo-button-container {
     margin-top: -20px;
   }
-  
+
   .demo-button {
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;

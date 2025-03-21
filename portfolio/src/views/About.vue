@@ -13,8 +13,9 @@ import { marked } from 'marked'
         <div class="hero-content">
           <h1 class="title">À propos de moi...</h1>
           <p class="bio">
-              Étudiant entrepreneur en 2ème année en BUT Informatique, je souhaite approfondir mes compétences en développement informatique. (pitch + domisoins pépite)
+              Étudiant entrepreneur en 2ème année en BUT Informatique, je souhaite approfondir mes compétences en développement informatique.
           </p>
+          <!--(pitch + domisoins pépite)-->
         </div>
       </section>
     </ScrollReveal>
