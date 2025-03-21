@@ -35,6 +35,7 @@ import ScrollReveal from '@/components/ScrollReveal.vue';
           <p>J'aime découvrir les dernières news sur les découvertes spatiales et les innovations de ce domaine. Référence : Hugo Lisoir</p>
         </div>
       </ScrollReveal>
+
     </div>
   </div>
 </template>

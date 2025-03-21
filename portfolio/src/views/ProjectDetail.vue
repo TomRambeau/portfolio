@@ -233,7 +233,7 @@ const openLightbox = (imageUrl) => {
 
 .description :deep(strong) {
   font-weight: 600;
-  color: var(--accent-color);
+  color: #5a5a5a;
 }
 
 .technologies {
