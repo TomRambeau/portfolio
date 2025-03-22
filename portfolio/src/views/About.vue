@@ -14,6 +14,7 @@ import { marked } from 'marked'
           <h1 class="title">À propos de moi...</h1>
           <p class="bio">
               Étudiant entrepreneur en 2ème année en BUT Informatique, je souhaite approfondir mes compétences en développement informatique.
+              Ayant vécu à Porto-vecchio de la primère jusqu'au bac, je mène actuellement la suite de mes études à l'IUT de Clermont-Ferrand.
           </p>
           <!--(pitch + domisoins pépite)-->
         </div>
