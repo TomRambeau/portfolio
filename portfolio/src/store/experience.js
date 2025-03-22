@@ -6,7 +6,7 @@ export const experiences = [
     companyLogo: "/experiences/safran-logo-short.jpg",
     period: "juillet 2024",
     duration: "1 mois",
-    description: "Amélioration d'un **outils de récupération des données de charges** et création d'un **outils de centralisation et d'analyse** de ces données.",
+    description: "Amélioration d'un **outil de récupération des données de charges** et création d'un **outil de centralisation et d'analyse** de ces données.",
     longDescription: "Cette mission consistait tout d'abord à **améliorer un outil existant** de récupération des données " +
                     "de charges d'un service de l'entreprise.\n\n" +
                     "L'objectif était de **l'optimiser** afin de diminuer au maximum son temps d'exécution.\n\n" +
@@ -21,11 +21,11 @@ export const experiences = [
                     "plusieurs filtres communs en traitant les milliers de lignes.",
     technologies: ["VBA", "Excel"],
     achievements: [
-      "Amélioration d'un outils de récupération des données de charges",
+      "Amélioration d'un outil de récupération des données de charges",
       "Détérmination d'analyses et de modélisations réalisables à partir de ces données",
-      "Création d'un outils permettant de centraliser l'ensemble des données de charges et de les exploiter sous forme d'un DashBoard interactif Excel",
+      "Création d'un outil permettant de centraliser l'ensemble des données de charges et de les exploiter sous forme d'un DashBoard interactif Excel",
     ],
-    impact: "**Diminution du temps d'exécution** de l'outils de récupération de données de charges de plus de **2/3**, l'amenant approxiamtivement à **30 minutes**. L'outils rendu donc **utilisable quotidiennement**. \n\n Données de charges sur plus d'une année de fichier Excel avec des formats différents **standardisées** et **centralisées**. **Àide à la décision** grâce aux analyses et modélisations réalisées.",
+    impact: "**Diminution du temps d'exécution** de l'outil de récupération de données de charges de plus de **2/3**, l'amenant approxiamtivement à **30 minutes**. L'outil rendu donc **utilisable quotidiennement**. \n\n Données de charges sur plus d'une année de fichier Excel avec des formats différents **standardisées** et **centralisées**. **Àide à la décision** grâce aux analyses et modélisations réalisées.",
     image: "/experiences/safran.data-system-arcachon.jpg"
   },
   {
