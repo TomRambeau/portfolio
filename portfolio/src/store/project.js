@@ -80,19 +80,19 @@ export const projects = [
     gallery: [
       {
         url: "/projects/3Dmino/page_lobby.png",
-        caption: "Lobby"
+        caption: "Accueil"
       },
       {
         url: "/projects/3Dmino/page_jeu.png",
-        caption: "partie classique"
+        caption: "Une partie classique"
       },
       {
         url: "/projects/3Dmino/page_jeu_3D.png",
-        caption: "mode 3D"
+        caption: "Mode 3D"
       },
       {
         url: "/projects/3Dmino/rules.gif",
-        caption: "fonctionnement du jeu"
+        caption: "Fonctionnement du jeu"
       }
     ],
   },
