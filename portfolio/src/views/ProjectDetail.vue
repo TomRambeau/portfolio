@@ -25,7 +25,13 @@ const openLightbox = (imageUrl) => {
 };
 
 const scrollToGallery = () => {
-  document.getElementById('gallery-section').scrollIntoView({
+  const gallerySection = document.getElementById('gallery-section');
+  const offset = 50; // Offset pour éviter que le header ne cache le contenu
+  const elementPosition = gallerySection.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: offsetPosition,
     behavior: 'smooth'
   });
 };
@@ -122,6 +128,12 @@ const scrollToGallery = () => {
         <ScrollReveal v-if= "project.gallery">
           <h2 class="featured-title">Aperçu visuel de l'application</h2>
           <p class="featured-description">Explorez les fonctionnalités du projet à travers une galerie visuelle</p>
+          <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" class="scroll-arrow">
+              <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
+            </svg>
+            <span>Faites défiler</span>
+          </div>
         </ScrollReveal>
       </div>
       <div class="featured-gallery">
@@ -385,6 +397,7 @@ const scrollToGallery = () => {
   padding: 4rem 0;
   margin: 4rem 0 0 0;
   overflow: hidden;
+  scroll-margin-top: 2rem;
 }
 
 .featured-content {
@@ -491,6 +504,10 @@ const scrollToGallery = () => {
   display: none;
 }
 
+.scroll-indicator {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .hero-section {
     height: 40vh;
@@ -562,6 +579,32 @@ const scrollToGallery = () => {
     overflow-x: auto;
     padding: 1rem 0;
   }
+
+  .scroll-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    color: #a0a0a0;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
 }
 
 .demo-button-container {
@@ -601,5 +644,10 @@ const scrollToGallery = () => {
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
 }
 </style>
