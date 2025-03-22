@@ -23,6 +23,12 @@ const openLightbox = (imageUrl) => {
   // TODO: Implement lightbox functionality
   window.open(getAssetUrl(imageUrl), '_blank');
 };
+
+const scrollToGallery = () => {
+  document.getElementById('gallery-section').scrollIntoView({
+    behavior: 'smooth'
+  });
+};
 </script>
 
 <template>
@@ -101,17 +107,17 @@ const openLightbox = (imageUrl) => {
 
     <ScrollReveal>
       <div class="back-button-container">
-        <router-link to="/projects" class="back-button">
+        <button @click="scrollToGallery" class="back-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
           </svg>
-          Retour aux projets
-        </router-link>
+          Visiter la galerie
+        </button>
       </div>
     </ScrollReveal>
 
-    <div class="featured-section">
+    <div class="featured-section" id="gallery-section">
       <div class="featured-content">
         <ScrollReveal v-if= "project.gallery">
           <h2 class="featured-title">Aperçu visuel de l'application</h2>
@@ -132,6 +138,18 @@ const openLightbox = (imageUrl) => {
         </div>
       </div>
     </div>
+
+    <ScrollReveal>
+      <div class="back-button-container">
+        <router-link to="/projects" class="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Retour aux projets
+        </router-link>
+      </div>
+    </ScrollReveal>
   </div>
 </template>
 
@@ -290,10 +308,13 @@ const openLightbox = (imageUrl) => {
   text-decoration: none;
   border-radius: 8px;
   transition: transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .back-button:hover {
-  transform: translateX(-5px);
+  transform: translateY(-5px);
 }
 
 .icon {
