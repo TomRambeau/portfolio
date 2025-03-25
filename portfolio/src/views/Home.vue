@@ -62,7 +62,8 @@ import { getAssetUrl } from '@/config/index.js'
   display: flex;
   align-items: center;
   padding: 2rem;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f7 100%);
+  background: var(--background-color);
+  transition: background-color 0.3s ease;
 }
 
 .content-wrapper {
@@ -85,7 +86,7 @@ import { getAssetUrl } from '@/config/index.js'
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  background: linear-gradient(135deg, var(--heading-gradient-start) 0%, var(--heading-gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -107,7 +108,8 @@ import { getAssetUrl } from '@/config/index.js'
 
 .description {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.8;
   margin-bottom: 2rem;
 }
@@ -141,10 +143,11 @@ import { getAssetUrl } from '@/config/index.js'
 }
 
 .cta-button.third {
-  background: #f5f5f7;
-  color: #666;
+  background: var(--light-gray);
+  color: var(--text-color);
+  opacity: 0.8;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--shadow-color);
   transition: all 0.3s ease;
 }
 
@@ -166,7 +169,8 @@ import { getAssetUrl } from '@/config/index.js'
 
 .tech-title {
   font-size: 1rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   margin-bottom: 1rem;
 }
 
@@ -178,11 +182,12 @@ import { getAssetUrl } from '@/config/index.js'
 
 .tech-item {
   padding: 0.5rem 1rem;
-  background: white;
+  background: var(--card-bg);
   border-radius: 50px;
   font-size: 0.9rem;
   color: var(--accent-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
 
 .image-container {

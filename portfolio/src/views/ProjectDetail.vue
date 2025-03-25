@@ -244,11 +244,12 @@ const scrollToGallery = () => {
 }
 
 .project-section {
-  background: #F5F5F5;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-section h2 {
@@ -258,13 +259,15 @@ const scrollToGallery = () => {
 }
 
 .description {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.6;
 }
 
 .description :deep(strong) {
   font-weight: 600;
-  color: #5a5a5a;
+  color: var(--text-color);
+  opacity: 1;
 }
 
 .technologies {
@@ -275,14 +278,15 @@ const scrollToGallery = () => {
 }
 
 .tech-badge {
-  background: #f8fafc;
-  color: #334155;
+  background: var(--background-color);
+  color: var(--accent-color);
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .features-list {
@@ -294,7 +298,8 @@ const scrollToGallery = () => {
   margin-bottom: 0.5rem;
   padding-left: 1.5rem;
   position: relative;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .features-list li::before {
@@ -316,11 +321,11 @@ const scrollToGallery = () => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: #f1f5f9;
+  background: var(--light-gray);
   color: var(--text-color);
   text-decoration: none;
   border-radius: 8px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
   border: none;
   cursor: pointer;
   font-size: 1rem;
@@ -467,11 +472,6 @@ const scrollToGallery = () => {
   width: 100%;
   height: auto;
   max-height: 500px;
-  object-fit: scale-down; /* Changé de contain à scale-down pour mieux gérer les GIF */
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 10px;
   image-rendering: auto; /* Ajout pour améliorer le rendu des GIF */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

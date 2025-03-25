@@ -210,7 +210,7 @@ import { marked } from 'marked'
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  background: linear-gradient(135deg, var(--heading-gradient-start) 0%, var(--heading-gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -218,7 +218,8 @@ import { marked } from 'marked'
 .bio {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .skills-section {
@@ -239,10 +240,11 @@ import { marked } from 'marked'
 }
 
 .skill-category {
-  background: #f5f5f5;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  border: 1px solid var(--border-color);
 }
 
 .skill-category h3 {
@@ -257,7 +259,8 @@ import { marked } from 'marked'
 
 .skill-category li {
   margin-bottom: 0.5rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .skill-category:hover {
@@ -311,15 +314,16 @@ import { marked } from 'marked'
 
 .duration {
   font-size: 0.85rem;
-  color: #666;
-  background: #e0e0e0;
+  color: var(--text-color);
+  opacity: 0.7;
+  background: var(--light-gray);
   padding: 4px 8px;
   border-radius: 4px;
   width: fit-content;
 }
 
 .timeline-content {
-  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 12px;
   display: block;
@@ -329,16 +333,16 @@ import { marked } from 'marked'
   position: relative;
   cursor: pointer;
   border: 2px solid transparent;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
-              0 6px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px var(--shadow-color),
+              0 6px 6px var(--shadow-color);
 }
 
 .timeline-content:hover {
+  background: var(--card-bg);
   border-color: var(--accent-color);
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15),
-              0 10px 10px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  box-shadow: 0 15px 30px var(--shadow-color),
+              0 10px 10px var(--shadow-color);
 }
 
 .view-more {
@@ -385,7 +389,8 @@ import { marked } from 'marked'
 }
 
 .description {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.6;
 }
 
@@ -404,8 +409,8 @@ import { marked } from 'marked'
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
 }
 
 .company-logo img {
@@ -437,10 +442,11 @@ import { marked } from 'marked'
 }
 
 .soft-skill-card {
-  background: #f5f5f5;
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  border: 1px solid var(--border-color);
 }
 
 .soft-skill-card:hover{
@@ -455,7 +461,8 @@ import { marked } from 'marked'
 }
 
 .soft-skill-card p {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.5;
 }
 
@@ -476,10 +483,11 @@ import { marked } from 'marked'
 }
 
 .education-card {
-  background: #f5f5f5;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  border: 1px solid var(--border-color);
 }
 
 .education-card:hover {
@@ -501,13 +509,15 @@ import { marked } from 'marked'
 }
 
 .education-school {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   font-weight: 500;
   margin-bottom: 1rem;
 }
 
 .education-description {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.5;
 }
 

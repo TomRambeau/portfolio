@@ -18,7 +18,7 @@ const handleSubmit = (event) => {
         <input type="text" id="name" name="name" required placeholder="Votre nom">
       </div>
     </div>
-    
+
     <div class="form-group">
       <label for="email">Email</label>
       <div class="input-container">
@@ -26,7 +26,7 @@ const handleSubmit = (event) => {
         <input type="email" id="email" name="email" required placeholder="Votre email">
       </div>
     </div>
-    
+
     <div class="form-group">
       <label for="subject">Sujet</label>
       <div class="input-container">
@@ -34,14 +34,14 @@ const handleSubmit = (event) => {
         <input type="text" id="subject" name="subject" required placeholder="Sujet de votre message">
       </div>
     </div>
-    
+
     <div class="form-group">
       <label for="message">Message</label>
       <div class="input-container">
         <textarea id="message" name="message" rows="5" required placeholder="Votre message"></textarea>
       </div>
     </div>
-    
+
     <button type="submit" class="submit-btn">
       Envoyer le message
       <svg class="send-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -54,9 +54,10 @@ const handleSubmit = (event) => {
   max-width: 600px;
   margin: 0 auto;
   padding: 2.5rem;
-  background: #f5f5f5;
+  background: var(--card-bg);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: background-color 0.3s ease;
 }
 
 .form-group {
@@ -66,7 +67,8 @@ const handleSubmit = (event) => {
 label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -82,18 +84,20 @@ label {
   left: 1rem;
   width: 20px;
   height: 20px;
-  color: #999;
+  color: var(--text-color);
+  opacity: 0.5;
   transition: color 0.3s ease;
 }
 
 input, textarea {
   width: 100%;
   padding: 1rem 1rem 1rem 3rem;
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--border-color);
   border-radius: 12px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: #f8fafc;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 textarea {
@@ -105,12 +109,12 @@ textarea {
 input:focus, textarea:focus {
   outline: none;
   border-color: var(--accent-color);
-  background: white;
-  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+  box-shadow: 0 0 0 4px rgba(var(--accent-color-rgb, 0, 102, 204), 0.1);
 }
 
 input:focus + .input-icon {
   color: var(--accent-color);
+  opacity: 1;
 }
 
 .submit-btn {

@@ -1,4 +1,3 @@
-
 <template>
   <div class="not-found">
     <div class="content">
@@ -23,7 +22,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+  background: var(--background-color);
+  transition: background-color 0.3s ease;
 }
 
 .content {
@@ -35,7 +35,7 @@
   font-size: 8rem;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  background: linear-gradient(135deg, var(--heading-gradient-start) 0%, var(--heading-gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
@@ -48,7 +48,8 @@
 }
 
 .description {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   margin-bottom: 2rem;
   font-size: 1.1rem;
 }

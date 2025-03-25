@@ -85,7 +85,8 @@ import ContactForm from '@/components/ContactForm.vue'
 
 .subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -98,11 +99,11 @@ import ContactForm from '@/components/ContactForm.vue'
 }
 
 .form-card, .info-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px var(--shadow-color);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .form-card:hover, .info-card:hover {
@@ -158,6 +159,11 @@ import ContactForm from '@/components/ContactForm.vue'
   background: linear-gradient(135deg, var(--accent-color) 0%, #0077b5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.cv-section p, .location-section p {
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .download-btn {

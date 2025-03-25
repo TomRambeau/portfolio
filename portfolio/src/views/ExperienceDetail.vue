@@ -144,11 +144,12 @@ onMounted(() => {
 }
 
 .detail-section {
-  background: #f5f5f5;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .detail-section h2 {
@@ -158,13 +159,15 @@ onMounted(() => {
 }
 
 .detail-section p {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.6;
 }
 
 .detail-section :deep(strong) {
   font-weight: 600;
-  color: #5a5a5a;
+  color: var(--text-color);
+  opacity: 1;
 }
 
 .tech-list {
@@ -174,11 +177,12 @@ onMounted(() => {
 }
 
 .tech-badge {
-  background: white;
+  background: var(--background-color);
   color: var(--accent-color);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
+  border: 1px solid var(--border-color);
 }
 
 .achievements-list {
@@ -190,13 +194,8 @@ onMounted(() => {
   margin-bottom: 0.5rem;
   padding-left: 1.5rem;
   position: relative;
-}
-
-.achievements-list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--accent-color);
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .back-button-container {
@@ -215,7 +214,7 @@ onMounted(() => {
   color: var(--text-color);
   text-decoration: none;
   border-radius: 8px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .back-button:hover {

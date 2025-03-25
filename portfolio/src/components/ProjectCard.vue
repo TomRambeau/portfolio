@@ -41,14 +41,14 @@ defineProps({
 
 <style scoped>
 .project-card {
-  background: #f5f5f5;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block; /* Ajoutez cette ligne pour s'assurer que le lien occupe tout l'espace */
-  text-decoration: none; /* Ajoutez cette ligne pour enlever le soulignement du lien */
-  color: inherit; /* Ajoutez cette ligne pour garder la couleur du texte originale */
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
   position: relative;
   border: 2px solid transparent;
 }
@@ -145,7 +145,8 @@ defineProps({
 }
 
 .description {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -158,11 +159,12 @@ defineProps({
 }
 
 .tech-tag {
-  background: white;
+  background: var(--background-color);
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
   font-size: 0.875rem;
   color: var(--accent-color);
+  border: 1px solid var(--border-color);
 }
 
 .project-links {

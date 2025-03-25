@@ -1,4 +1,4 @@
-const colors =  [
+export const colors =  [
     '#FF001F',
     '#00A7FF',
     '#B900D8',
@@ -6,8 +6,10 @@ const colors =  [
     '#00DE25'
 ]
 
-function createChromino() {
+export function createChromino() {
     const section = document.getElementById("bg");
+    if (!section) return;
+
     const square = document.createElement('span');
 
     var size = Math.random() * 50;
@@ -16,8 +18,8 @@ function createChromino() {
     square.style.height = 5 + size + 'px';
     square.style.borderRadius= 10 + '%';
 
-    height = document.getElementById("main").offsetHeight ?? document.body.offsetHeight;
-    width = document.getElementById("main").offsetWidth ?? document.body.offsetWidth;
+    const height = window.innerHeight;
+    const width = window.innerWidth;
 
     square.style.top = (Math.random() * height) - (size*4) + 'px';
     square.style.left = (Math.random() * width) - (size*4) + 'px';
@@ -35,18 +37,20 @@ function createChromino() {
     },5000)
 }
 
-function createSquare() {
+export function createSquare() {
     const section = document.getElementById("bg");
+    if (!section) return;
+
     const square = document.createElement('span');
 
-    var size = Math.random() * 30 * window.innerWidth;
+    var size = Math.random() * 30;
 
     square.style.width = 20 + size + 'px';
     square.style.height = 20 + size + 'px';
     square.style.borderRadius= 10 + '%';
 
-    square.style.top = Math.random() * innerHeight - size + 'px';
-    square.style.left = Math.random() * innerWidth - size + 'px';
+    square.style.top = Math.random() * window.innerHeight - size + 'px';
+    square.style.left = Math.random() * window.innerWidth - size + 'px';
 
     const bg = colors[Math.floor(Math.random() * colors.length)];
     square.style.background = bg;
@@ -58,15 +62,21 @@ function createSquare() {
     },5000)
 }
 
-function clearBackground() {
+export function clearBackground() {
     const section = document.getElementById("bg");
+    if (!section) return;
+
     while(section.firstChild) {
         section.removeChild(section.lastChild);
     }
 }
 
-setInterval(createChromino,300);
+export function initBackground() {
+    setInterval(createChromino, 300);
+    window.addEventListener('resize', clearBackground);
+}
 
-window.addEventListener('resize', clearBackground);
-
-export { createChromino, clearBackground }
+export function cleanupBackground() {
+    clearBackground();
+    window.removeEventListener('resize', clearBackground);
+}

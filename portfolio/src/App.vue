@@ -1,5 +1,11 @@
 <script setup>
 import NavBar from './components/NavBar.vue'
+import { onMounted } from 'vue'
+import { updateThemeClass } from './store/theme.js'
+
+onMounted(() => {
+  updateThemeClass()
+})
 </script>
 
 <template>
@@ -22,6 +28,24 @@ import NavBar from './components/NavBar.vue'
   --accent-color: #0066cc;
   --text-color: #1d1d1f;
   --light-gray: #f5f5f7;
+  --card-bg: #f5f5f5;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --heading-gradient-start: #000000;
+  --heading-gradient-end: #333333;
+}
+
+.dark-theme {
+  --primary-color: #ffffff;
+  --background-color: #0d1117;
+  --accent-color: #58a6ff;
+  --text-color: #e6edf3;
+  --light-gray: #21262d;
+  --card-bg: #161b22;
+  --border-color: #30363d;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --heading-gradient-start: #ffffff;
+  --heading-gradient-end: #c9d1d9;
 }
 
 body {
@@ -35,6 +59,7 @@ body {
   font-feature-settings: "kern" 1, "liga" 1;
   font-synthesis: none;
   letter-spacing: -0.01em;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {

@@ -8,9 +8,9 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
   <div class="projects-container">
     <h1 class="title">Mes Projets</h1>
     <p class="subtitle">Découvrez une sélection de mes réalisations</p>
-    
+
     <div class="projects-grid">
-      <ScrollReveal v-for="(project, index) in projects" 
+      <ScrollReveal v-for="(project, index) in projects"
                     :key="project.id"
                     :delay="index * 200">
         <ProjectCard v-bind="project" />
@@ -31,14 +31,15 @@ import ScrollReveal from '@/components/ScrollReveal.vue'
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  background: linear-gradient(135deg, var(--heading-gradient-start) 0%, var(--heading-gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
   text-align: center;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   margin-bottom: 3rem;
 }
 

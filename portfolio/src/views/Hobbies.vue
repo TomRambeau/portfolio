@@ -52,14 +52,15 @@ import ScrollReveal from '@/components/ScrollReveal.vue';
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  background: linear-gradient(135deg, var(--heading-gradient-start) 0%, var(--heading-gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
   text-align: center;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   margin-bottom: 3rem;
 }
 
@@ -70,17 +71,18 @@ import ScrollReveal from '@/components/ScrollReveal.vue';
 }
 
 .hobby-card {
-  background: #f5f5f5;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   text-align: center;
+  border: 1px solid var(--border-color);
 }
 
 .hobby-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 15px var(--shadow-color);
 }
 
 .hobby-icon {
@@ -101,7 +103,8 @@ import ScrollReveal from '@/components/ScrollReveal.vue';
 }
 
 .hobby-card p {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.6;
 }
 
