@@ -35,6 +35,14 @@ const scrollToGallery = () => {
     behavior: 'smooth'
   });
 };
+
+// Fonction pour déterminer si l'image est une interface mobile
+const isMobileDesign = (url) => {
+  // Vérifier si l'URL contient des mots-clés comme "mobile", "app", "screen"
+  const mobileKeywords = ['mobile', 'app', 'screen', 'smartphone', 'phone', 'android', 'ios'];
+  const lowerUrl = url.toLowerCase();
+  return mobileKeywords.some(keyword => lowerUrl.includes(keyword));
+};
 </script>
 
 <template>
@@ -136,14 +144,27 @@ const scrollToGallery = () => {
           </div>
         </ScrollReveal>
       </div>
-      <div class="featured-gallery">
+
+      <!-- Galerie adaptative basée sur le type de contenu -->
+      <div v-if="project.gallery && project.gallery.some(img => isMobileDesign(img.url))" class="mobile-design-gallery">
+        <ScrollReveal v-for="(image, index) in project.gallery"
+                     :key="index"
+                     :delay="index * 150">
+          <div class="mobile-design-item" @click="openLightbox(image.url)">
+            <img :src="getAssetUrl(image.url)" :alt="image.caption">
+            <div class="mobile-design-caption">{{ image.caption }}</div>
+          </div>
+        </ScrollReveal>
+      </div>
+
+      <!-- Galerie standard pour les autres types d'images -->
+      <div v-else class="featured-gallery">
         <div class="gallery-track" v-if="project.gallery">
           <ScrollReveal v-for="(image, index) in project.gallery"
-               :key="index"
-               class="featured-gallery-item"
-               @click="openLightbox(image.url)"
-               :delay="index * 200">
-
+                       :key="index"
+                       class="featured-gallery-item"
+                       @click="openLightbox(image.url)"
+                       :delay="index * 200">
             <img :src="getAssetUrl(image.url)" :alt="image.caption">
             <div class="featured-caption">{{ image.caption }}</div>
           </ScrollReveal>
@@ -439,41 +460,33 @@ const scrollToGallery = () => {
   flex-wrap: wrap;
   gap: 2rem;
   padding: 2rem 5%;
-  justify-content: flex-start; /* Changé de center à flex-start */
+  justify-content: flex-start;
   align-items: flex-start;
 }
 
 .featured-gallery-item {
   flex: 0 0 auto;
-  width: calc(33.333% - 1.34rem); /* Ajusté pour compenser le gap et éviter les sauts de ligne non désirés */
+  width: calc(33.333% - 1.34rem);
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
-}
-
-@media (max-width: 1200px) {
-  .featured-gallery-item {
-    width: calc(50% - 1rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .featured-gallery-item {
-    width: 100%; /* Simplifié car plus besoin de calculer avec le gap en pleine largeur */
-  }
-
-  .gallery-track {
-    padding: 1rem 5%;
-    gap: 1.5rem;
-  }
 }
 
 .featured-gallery-item img {
   width: 100%;
   height: auto;
   max-height: 500px;
-  image-rendering: auto; /* Ajout pour améliorer le rendu des GIF */
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px var(--shadow-color);
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  image-rendering: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-theme .featured-gallery-item img {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .featured-gallery-item:hover img {
@@ -507,6 +520,12 @@ const scrollToGallery = () => {
 
 .scroll-indicator {
   display: none;
+}
+
+@media (max-width: 1200px) {
+  .featured-gallery-item {
+    width: calc(50% - 1rem);
+  }
 }
 
 @media (max-width: 768px) {
@@ -557,12 +576,12 @@ const scrollToGallery = () => {
     justify-content: flex-start;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .gallery-track::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
   }
 
   .featured-gallery-item {
@@ -650,5 +669,48 @@ const scrollToGallery = () => {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
+}
+
+.mobile-design-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.mobile-design-item {
+  width: 250px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.mobile-design-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.mobile-design-item:hover {
+  transform: translateY(-10px);
+}
+
+.mobile-design-caption {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .mobile-design-gallery {
+    gap: 1.5rem;
+  }
+
+  .mobile-design-item {
+    width: 180px;
+  }
 }
 </style>
