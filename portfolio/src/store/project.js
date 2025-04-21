@@ -10,7 +10,9 @@ export const projects = [
                     "et de simplifier la gestion des soins à domicile.",
     technologies: ["IOS", "Android", ".NET MAUI", "C#", "XAML"],
     image: "/projects/domisoins/domisoins.png",
-    demo:"https://domisoinsapp.com/",
+    demo:"https://youtube.com/shorts/avgBAYklWwg",
+    landingPage: "https://domisoinsapp.com/",
+
     workflow: "Le professionnel de santé retrouve sur la **page d'accueil** de l'application les patients qu'il a ajouté." +
               "Ensuite, l'utilisateur peut **planifier sa journée**, sa semaine sur la page du planning voir même inclure " +
               "une **récurennce de rendez-vous**." +
